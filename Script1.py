@@ -80,7 +80,17 @@ def jugarPunto(jugador1, jugador2):
    
     
     if jugador1.getPuntos() >= 3 and jugador2.getPuntos() >= 3:
-        if jugador1.getPuntos() == 3 and jugador2.getPuntos() == 3:
+        if jugador1.getPuntos()==3 and jugador2.getPuntos()==3:
+            marcador_puntos(jugador1.getNombre(), jugador1.getPuntos())
+            marcador_puntos(jugador2.getNombre(), jugador2.getPuntos())
+        elif jugador1.getAdv() and jugador1.getNombre() != nombre_anotador:
+            jugador1.setAdv(False)
+            jugador2.setAdv(False)
+            marcador_puntos(jugador1.getNombre(), jugador1.getPuntos())
+            marcador_puntos(jugador2.getNombre(), jugador2.getPuntos())
+        elif jugador2.getAdv() and jugador2.getNombre() != nombre_anotador:
+            jugador1.setAdv(False)
+            jugador2.setAdv(False)
             marcador_puntos(jugador1.getNombre(), jugador1.getPuntos())
             marcador_puntos(jugador2.getNombre(), jugador2.getPuntos())
         elif jugador1.getNombre() == nombre_anotador:
@@ -191,7 +201,7 @@ def main():
         marcador_Sets(jugador1,jugador2)
         jugador1.limpiarJuegos()
         jugador2.limpiarJuegos()
-        #elegirJugadorSaque(jugador1, jugador2,jugador_saque) 
+        
 
     if jugador1.getSets() > jugador2.getSets():
         print("¡El ganador del juego es {}!".format(jugador1.nombre))
