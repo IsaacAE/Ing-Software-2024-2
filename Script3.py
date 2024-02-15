@@ -1,5 +1,8 @@
 #Importamos las librerias necesarias
 import numpy as np
+import matplotlib
+import PyQt5.QtWidgets as QtWidgets
+matplotlib.use('Qt5Agg')
 from matplotlib import pyplot as plt
 
 #Generamos 100 puntos equidistantes entre 0 y 2 Pi (ciclo completo de un circulo) con 'linspace'
