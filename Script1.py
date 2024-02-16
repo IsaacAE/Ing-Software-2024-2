@@ -180,8 +180,23 @@ def jugarSet(jugador1, jugador2, jugador_saque):
         jugador_saque= elegirJugadorSaque(jugador1, jugador2,jugador_saque)  
 
 def main():
-    nombre1 = input("Ingresa el nombre del jugador 1: ")
-    nombre2 = input("Ingresa el nombre del jugador 2: ")
+    while True:
+        try:
+            nombre1 = input("Ingresa el nombre del jugador 1: ")
+            nombre2 = input("Ingresa el nombre del jugador 2: ")
+
+        # Verificar si los nombres son iguales
+            if nombre1 == nombre2:
+            # Lanzar una excepción personalizada si los nombres son iguales
+                raise ValueError("Error: Los nombres no pueden ser iguales.")
+
+        # Continuar con el resto del código si los nombres son diferentes
+            break
+
+        except ValueError as e:
+            print(e)
+    
+    
     jugador1 = Jugador(nombre1)
     jugador2 = Jugador(nombre2)  
       
