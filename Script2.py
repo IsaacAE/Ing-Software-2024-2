@@ -6,13 +6,13 @@ def contar_pasos_negativos(cadena):
 
         contador = 0
         nivel_actual = 0
-
+        # Contamos los niveles bajados o subidos
         for paso in cadena:
             if paso == 'D':
                 nivel_actual -= 1
             elif paso == 'U':
                 nivel_actual += 1
-
+            #Es un valle si dimos un paso arriba y justo llegamos al nivel del mar
             if nivel_actual == 0 and paso == 'U':
                 contador += 1
 
@@ -21,12 +21,14 @@ def contar_pasos_negativos(cadena):
     except ValueError as e:
         print(f"Error: {e}")
 
+# Clase para simular el nodo de un arbol
 class Nodo:
     def __init__(self, valor):
         self.valor = valor
         self.izquierda = None
         self.derecha = None
-
+        
+# Clase para simular el comportamiento de un arbol binario
 class Arbol:
     # Funciones privadas
    
@@ -36,6 +38,7 @@ class Arbol:
             self.agregar(valor)
 
     
+# Funcion para agregar un nodo
 
     def agregar_nodo(self, nodo, valor):
         if self.raiz is None:
@@ -51,11 +54,13 @@ class Arbol:
             else:
                 self.agregar_nodo(nodo.derecha, valor)
 
-    # estas son las funciones que se deben llamar para agregar y obtener recorridos.
+    # Estas son las funciones que se deben llamar para agregar y obtener recorridos.
 
+    # Agregar elementos al arbol
     def agregar(self, valor):
         self.agregar_nodo(self.raiz, valor)
-
+    
+    # Obtener la lista con los elementos en el recorrido in-orden
     def recorrido_in_orden(self, nodo):
         elementos = []
         if nodo is not None:
@@ -64,6 +69,7 @@ class Arbol:
             elementos.extend(self.recorrido_in_orden(nodo.derecha))
         return elementos
 
+    # Obtener la lista de elementos con recorrido pre-orden
     def recorrido_pre_orden(self, nodo):
         elementos = []
         if nodo is not None:
@@ -72,6 +78,7 @@ class Arbol:
             elementos.extend(self.recorrido_pre_orden(nodo.derecha))
         return elementos
 
+    # Obtener la lista de elementos del arbol con recorrido post-orden
     def recorrido_post_orden(self, nodo):
         elementos = []
         if nodo is not None:
@@ -85,24 +92,4 @@ class Arbol:
    
 
 
-def main():
-    # Crear un árbol sin valor inicial
-    arbol = Arbol()
 
-    # Agregar 10 elementos al árbol
-    elementos = [1,2,3,4,5,6,7,8,9,10]
-    for elemento in elementos:
-        arbol.agregar(elemento)
-
-    # Realizar los tres recorridos
-    in_orden_resultado = arbol.recorrido_in_orden(arbol.raiz)
-    pre_orden_resultado = arbol.recorrido_pre_orden(arbol.raiz)
-    post_orden_resultado = arbol.recorrido_post_orden(arbol.raiz)
-
-    # Imprimir los resultados
-    print("Recorrido In Orden:", in_orden_resultado)
-    print("Recorrido Pre Orden:", pre_orden_resultado)
-    print("Recorrido Post Orden:", post_orden_resultado)
-
-if __name__ == "__main__":
-    main()

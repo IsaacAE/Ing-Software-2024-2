@@ -1,5 +1,6 @@
 import random
 
+# Clase que simula a un jugador de tenis
 class Jugador:
     def __init__(self, nombre):
         self.nombre = nombre
@@ -7,7 +8,7 @@ class Jugador:
         self.juegos = 0
         self.sets = 0
         self.adv = False
-
+    # Metodos setters y getters
     def getNombre(self):
         return self.nombre
     
@@ -41,7 +42,7 @@ class Jugador:
     def setAdv(self, valor):
         self.adv = valor
 
-    
+# Funcion para imprimir el marcador de los puntos   
 def marcador_puntos(nombre, puntos):
     if puntos == 0:
         print(nombre, ": 0")
@@ -52,11 +53,12 @@ def marcador_puntos(nombre, puntos):
     elif puntos >= 3:
         print(nombre, ": 40")
    
-
+# Funcion para determinar si se debe hacer el cambio de cancha
 def cambiarCancha(jugador1, jugador2):
     numJuegos = jugador1.getJuegos() + jugador2.getJuegos()
     return numJuegos % 2 != 0
 
+# Funcion para pedir el anotador que marcara el punto
 def pedir_anotador(jugador1, jugador2):
     while True:
         try:
@@ -68,6 +70,7 @@ def pedir_anotador(jugador1, jugador2):
         except Exception as e:
             print("Error:", e)
 
+# Funcion para jugar por un punto del partido
 def jugarPunto(jugador1, jugador2):
     nombre_anotador = pedir_anotador(jugador1, jugador2)
     print("Anoto el jugador: "+ nombre_anotador)
@@ -78,7 +81,7 @@ def jugarPunto(jugador1, jugador2):
     elif nombre_anotador == jugador2.getNombre():
         jugador2.anotacion()
    
-    
+    # Casos para cuando ambos jugadores llegan a 40 puntos, donde se determina la ventaja
     if jugador1.getPuntos() >= 3 and jugador2.getPuntos() >= 3:
         if jugador1.getPuntos()==3 and jugador2.getPuntos()==3:
             marcador_puntos(jugador1.getNombre(), jugador1.getPuntos())
@@ -107,6 +110,7 @@ def jugarPunto(jugador1, jugador2):
          
     return nombre_anotador
 
+# Funcion para jugar un juego, en cada uno se solicita el jugar por un punto hasta obtener un ganador
 def jugarJuego(jugador1,jugador2):
     
     jugador1.limpiarPuntos()
@@ -131,10 +135,11 @@ def jugarJuego(jugador1,jugador2):
             marcador_puntos(jugador1.getNombre(), jugador1.getPuntos())
             marcador_puntos(jugador2.getNombre(), jugador2.getPuntos())
 
+# Funcion para sleccionar el jugador que hara el saque
 def elegirJugadorSaque(jugador1, jugador2, ultimo_saque=None):
     jugadores = [jugador1, jugador2]
 
-    # Asegurarse de que el jugador seleccionado para el saque sea diferente al último
+    # Asegurarse de que el jugador seleccionado para el saque sea diferente al ultimo
     if ultimo_saque is not None:
         jugadores.remove(ultimo_saque)
 
@@ -142,16 +147,19 @@ def elegirJugadorSaque(jugador1, jugador2, ultimo_saque=None):
     print("El jugador que saca este juego es:", jugador_saque.getNombre())
     return jugador_saque
 
+# Funcion que imprime el marcador de los juegos
 def marcador_Juegos(jugador1, jugador2):
     print("### Marcador de juego ###")
     print("{}: {}".format(jugador1.getNombre(), jugador1.getJuegos()))
     print("{}: {}".format(jugador2.getNombre(), jugador2.getJuegos()))
 
+# Funcion que imprime el marcador de los sets
 def marcador_Sets(jugador1, jugador2):
     print("### Marcador de sets ###")
     print("{}: {}".format(jugador1.getNombre(), jugador1.getSets()))
     print("{}: {}".format(jugador2.getNombre(), jugador2.getSets()))
 
+# Funcion para jugar un set, se jugan juegos hasta determinar un ganador
 def jugarSet(jugador1, jugador2, jugador_saque):
     jugador_saque= elegirJugadorSaque(jugador1, jugador2,jugador_saque)  
     while True:
@@ -179,6 +187,7 @@ def jugarSet(jugador1, jugador2, jugador_saque):
             return jugador2.getNombre()  
         jugador_saque= elegirJugadorSaque(jugador1, jugador2,jugador_saque)  
 
+# Funciona princiapl donde se lleva a cabo la simulacion del juego 
 def main():
     while True:
         try:
