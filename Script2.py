@@ -1,4 +1,4 @@
-def contar_pasos_negativos(cadena):
+def contar_valles(cadena):
     try:
         # Validar la entrada
         if not all(paso in ('D', 'U') for paso in cadena):
