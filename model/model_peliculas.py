@@ -15,13 +15,16 @@ def filtrar_id_pelicula(id):
 
 
 def eliminar_id_pelicula(id_pelicula):
-    pelicula = peliculas.query.get(id_pelicula)
-    if pelicula is None:
-       print("No existe pelicula con dicho ID.")  
+    if not id_pelicula :
+        eliminar_tabla_peliculas()
     else:
-        db.session.delete(pelicula)
-        db.session.commit()
-        print(f"La pelicula con ID: {id_pelicula} fue eliminada.")
+        pelicula = peliculas.query.get(id_pelicula)
+        if pelicula is None:
+            print("No existe película con dicho ID.")
+        else:
+            db.session.delete(pelicula)
+            db.session.commit()
+            print(f"La película con ID: {id_pelicula} fue eliminada.")
        
 
 def eliminar_tabla_peliculas():

@@ -15,13 +15,16 @@ def filtrar_id_renta(id_renta):
 
 
 def eliminar_id_renta(id_renta):
-    renta = rentar.query.get(id_renta)
-    if renta is None:
-        print("No existe alguna renta con dicho ID.")
+    if not id_renta :
+        eliminar_tabla_rentar()
     else:
-        db.session.delete(renta)
-        db.session.commit()
-        print(f"Usuario con ID {id_renta} eliminado exitosamente.")
+        renta = rentar.query.get(id_renta)
+        if renta is None:
+            print("No existe alguna renta con dicho ID.")
+        else:
+            db.session.delete(renta)
+            db.session.commit()
+            print(f"Usuario con ID {id_renta} eliminado exitosamente.")
 
 def eliminar_tabla_rentar():
     confirmacion = input("Deseas eliminar todos los elementos de la tabla 'rentar'? (Y/N):")

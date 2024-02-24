@@ -54,7 +54,7 @@ if __name__ == '__main__':
                     continue
 
                 try:
-                    id_buscar = int(input("Ingrese el ID a filtrar: "))
+                    id_buscar = input("Ingrese el ID a filtrar: ")
                 except ValueError:
                     print("Error: Ingrese un ID válido.")
                     continue
@@ -75,7 +75,7 @@ if __name__ == '__main__':
                     continue
 
                 try:
-                    id_eliminar = int(input("Ingrese el ID del registro a eliminar: "))
+                    id_eliminar = input("Ingrese el ID del registro a eliminar: ")
                 except ValueError:
                     print("Error: Ingrese un ID válido.")
                     continue
