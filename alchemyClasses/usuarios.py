@@ -38,7 +38,7 @@ class usuarios(db.Model):
             self.superUser = superUser
 
     def __str__(self):
-        return f"ID: {self.nombre}\n" \
+        return f"ID: {self.idUsuario}\n" \
                f"Nombre: {self.nombre}\n" \
                f"Apellido Paterno: {self.apPat}\n" \
                f"Apellido Materno: {self.apMat}\n" \

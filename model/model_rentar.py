@@ -11,6 +11,16 @@ def filtrar_id_renta(id_renta):
         print("No existe alguna renta con dicho ID.")
     else:
         print(renta)
+
+
+def cambiar_columna_fecha_renta(id_rentar,fecha):
+    renta = rentar.query.filter(rentar.idRentar==id_rentar).first()
+    if renta is None:
+       print("No existe alguna renta con dicho ID") 
+    else:
+        renta.fecha_renta= fecha
+        db.session.commit()
+        print("Se ha actualizado la renta con ID: "+ str(id_rentar) + " a tener la fecha de renta: "+ str(fecha))
         
 
 

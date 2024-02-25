@@ -21,4 +21,10 @@ class rentar(db.Model):
         self.estatus = estatus
         
     def __str__(self):
-        return f'ID Usuario:{self.idUsuario}\nID Pelicula:{self.idPelicula}\nFecha renta:{self.fecha_renta}\nDuracion renta:{self.dias_de_renta}\nEstatus:{self.estatus}\n'
+        return f"ID Renta: {self.idRentar}\n" \
+               f"ID Usuario: {self.idUsuario}\n" \
+               f"ID Pelicula: {self.idPelicula}\n" \
+               f"Fecha Renta: {self.fecha_renta}\n" \
+               f"Dias de renta: {self.dias_de_renta}\n" \
+               f"Estatus: {self.estatus}\n" 
+               

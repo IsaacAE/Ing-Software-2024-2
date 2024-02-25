@@ -16,4 +16,9 @@ class peliculas(db.Model):
         self.inventario = inventario
 
     def __str__(self):
-        return f'Nombre:{self.nombre}\nGenero:{self.genero}\nDuracion:{self.duracion} minutos\nInventario:{self.inventario}\n'
+        return f"ID: {self.idPelicula}\n" \
+               f"Nombre: {self.nombre}\n" \
+               f"Genero: {self.genero}\n" \
+               f"Duracion: {self.duracion} minutos\n" \
+               f"Inventario: {self.inventario}\n"
+               

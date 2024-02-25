@@ -11,6 +11,16 @@ def filtrar_id_pelicula(id):
         print("No existe pelicula con dicho ID.") 
     else:
         print(pelicula)
+
+
+def cambiar_columna_nombre_pelicula(id_pelicula,nombre):
+    pelicula = peliculas.query.filter(peliculas.idPelicula==id_pelicula).first()
+    if pelicula is None:
+       print("No existe alguna pelicula con dicho ID") 
+    else:
+        pelicula.nombre= nombre
+        db.session.commit()
+        print("Se ha actualizado la pelicula con ID: "+ str(id_pelicula) + " a tener el nombre: "+ nombre)
         
 
 

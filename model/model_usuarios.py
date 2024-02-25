@@ -12,7 +12,14 @@ def filtrar_id_usuario(id_usuario):
     else:
         print(usuario)
         
-
+def cambiar_columna_nombre_usuario(id_usuario,nombre):
+    usuario = usuarios.query.filter(usuarios.idUsuario==id_usuario).first()
+    if usuario is None:
+       print("No existe algun usuario con dicho ID") 
+    else:
+        usuario.nombre= nombre
+        db.session.commit()
+        print("Se ha actualizado el usuario con ID: "+ str(id_usuario) + " a tener el nombre: "+ nombre)
 
 def eliminar_id_usuario(id_usuario):
     if not id_usuario :
