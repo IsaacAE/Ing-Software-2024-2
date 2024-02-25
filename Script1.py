@@ -8,7 +8,7 @@ def cifrar_password(password):
     # Creamos un objeto de hash SHA-256
     hash_obj = SHA256.new()
 
-    # Convertimos la contraseña a bytes y actualizamos el hash
+    # Convertimos la contrasenia a bytes y actualizamos el hash
     hash_obj.update(password.encode('utf-8'))
 
     # Obtenemos el hash en formato de bytes
@@ -17,9 +17,8 @@ def cifrar_password(password):
     # Convertimos el hash a una cadena Base64 para almacenarlo de forma segura
     return b64encode(password_hash).decode('utf-8')
 
-
+#Creamos una funcion para conectar con la base de datos, de esta manera basta con llamar a la funcion
 def conectar_db():
-    # Configura la conexión a la base de datos
     connection = pymysql.connect(host='localhost',
                              user='lab',
                              password='Developer123!',
@@ -28,30 +27,22 @@ def conectar_db():
                              cursorclass=pymysql.cursors.DictCursor)
     return connection
 
+#Funcion para cerrar la conexion a la base de datos
 def cerrar_db(conexion):
-    # Cierra la conexión a la base de datos
     conexion.close()
 
 
 
-
+#Funcion para filtrar los usuarios que cuyo apellido (cualquiera de los dos) termine con la cadena dada 
 def filtrar_usuarios_por_apellido(apellido):
     try:
-        # Conecta a la base de datos utilizando un context manager
         with conectar_db() as conexion:
-            # Crea un cursor para ejecutar consultas
             with conexion.cursor() as cursor:
-                # Consulta SQL para filtrar usuarios por apellido
                 consulta = "SELECT * FROM usuarios WHERE apPat LIKE %s OR apMat LIKE %s"
 
                 apellido_con_comodin = f"%{apellido}"
-                
-                
-                # Ejecuta la consulta
                 cursor.execute(consulta, (apellido_con_comodin,apellido_con_comodin))
                
-
-                # Obtiene los resultados y crea instancias de la clase Usuario
                 usuarios_filtrados = cursor.fetchall()
                 for usuario in usuarios_filtrados:
                     print(f"ID: {usuario['idUsuario']}\nNombre: {usuario['nombre']}\napPat: {usuario['apPat']}\napMat: {usuario['apMat']}\nPassword: {usuario['password']}\nEmail: {usuario['email']}\nProfilePicture:{usuario['profilePicture']}\nSuperUser: {usuario['superUser']}\n")
@@ -60,62 +51,46 @@ def filtrar_usuarios_por_apellido(apellido):
                 
 
     except pymysql.Error as e:
-        print(f"Error en la conexión a la base de datos: {e}")
+        print(f"Error en la conexion a la base de datos: {e}")
         return None
 
-
+#Funcion para cambiar el genero de una pelicula a partir del nombre de la misma y el genero que se quiere que se tenga
 def cambiar_genero_pelicula(nombre_pelicula, nuevo_genero):
     try:
-        # Conecta a la base de datos utilizando un context manager
         with conectar_db() as conexion:
-            # Crea un cursor para ejecutar consultas
             with conexion.cursor() as cursor:
-                # Consulta SQL para actualizar el género de la película
                 consulta = "UPDATE peliculas SET genero = %s WHERE nombre = %s"
                
-                
-                # Ejecuta la consulta
                 cursor.execute(consulta, (nuevo_genero, nombre_pelicula))
                 
-                # Comprueba si se realizó alguna actualización
                 if cursor.rowcount > 0:
-                    print(f"Se actualizó el género de la película '{nombre_pelicula}' a '{nuevo_genero}'.")
+                    print(f"Se actualizo el genero de la pelicula '{nombre_pelicula}' a '{nuevo_genero}'.")
                 else:
-                    print(f"No se encontró la película '{nombre_pelicula}'.")
+                    print(f"No se encontro la pelicula '{nombre_pelicula}'.")
 
-                # Confirma la transacción
                 conexion.commit()
 
     except pymysql.Error as e:
-        # Si hay un error, imprímelo
-        print(f"Error en la conexión a la base de datos: {e}")
+        print(f"Error en la conexion a la base de datos: {e}")
 
+#Funcion para eliminar las rentas cuya fecha de renta sea menor a la actual menos 3 dias
 def eliminar_rentas():
     try:
-        # Conecta a la base de datos utilizando un context manager
         with conectar_db() as conexion:
-            # Crea un cursor para ejecutar consultas
             with conexion.cursor() as cursor:
-                # Consulta SQL para actualizar el género de la película
                 fecha_limite = (datetime.now() - timedelta(days=3)).date()
 
-                # Crear la consulta SQL para eliminar las rentas
                 consulta = "DELETE FROM rentar WHERE fecha_renta < %s AND fecha_renta < NOW()"
-
-                # Ejecutar la consulta
                 cursor.execute(consulta, (fecha_limite))
-
-                # Hacer commit para aplicar los cambios
                 conexion.commit()
 
                 
 
     except pymysql.Error as e:
-        # Si hay un error, imprímelo
-        print(f"Error en la conexión a la base de datos: {e}")
+        print(f"Error en la conexion a la base de datos: {e}")
 
 
-                    
+#Funcion para insertar un nuevo registro en cada tabla                  
 def insertar_aleatorio():
     nombres = ["Juan", "Ana", "Pedro", "Maria", "Isaac", "Fernando", "Valeria", "Agripino", "Hector", "Gael"]
     apellidos = ["Maya", "Cooper", "Koothrappali", "Hofstadter", "Wolowitz", "Fowler", "Alvarez", "Juarez", "Perez", "Huerta"]
@@ -152,87 +127,58 @@ def insertar_aleatorio():
 
 
     try:
-        # Conecta a la base de datos utilizando un context manager
         with conectar_db() as conexion:
-            # Crea un cursor para ejecutar consultas
             with conexion.cursor() as cursor:
-
 
                 consulta = "INSERT INTO rentar (idUsuario, idPelicula, fecha_renta, dias_de_renta, estatus) VALUES (%s, %s, %s, %s, %s)"
                 
-                # Ejecuta la consulta
                 cursor.execute(consulta, (id_usuario,id_pelicula,fecha,5,0))
                 conexion.commit()
                 
-               
-
-                
-               
-
     except pymysql.Error as e:
-        # Si hay un error, imprímelo
-        print(f"Error en la conexión a la base de datos: {e}")
+        print(f"Error en la conexion a la base de datos: {e}")
 
+#Funcion para insertar un registro nuevo en la tabla usuarios
 def insertar_usuario(nombre, apPat, apMat, password, email, profilePicture, superUser):
-    # Establecer la conexión con la base de datos
     conexion = conectar_db()
-    # Crear un objeto cursor
-   
-    # Establecer la conexión con la base de datos
-    
-    # Crear un objeto cursor
+
     cursor = conexion.cursor()
+    #Se cifra la contrasenia
     passwordCifrada = cifrar_password(password)
 
-
-    # Crear la consulta SQL para insertar un usuario
     consulta = """
         INSERT INTO usuarios (nombre, apPat, apMat, password, email, profilePicture, superUser) 
         VALUES (%s, %s, %s, %s, %s, %s, %s)
     """
-
-    # Ejecutar la consulta
     cursor.execute(consulta, (nombre, apPat, apMat, passwordCifrada, email, profilePicture, superUser))
 
     
-    
-      # Obtener el ID del usuario recién insertado
     id_usuario = cursor.lastrowid
-
-    # Hacer commit para aplicar los cambios
     conexion.commit()
     
-    
-  
-
     return id_usuario
 
+#Funcion para insertar un registro en la tabla peliculas
 def insertar_pelicula(nombre, genero, duracion, inventario):
-    # Establecer la conexión con la base de datos
     conexion = conectar_db()
-    # Crear un objeto cursor
     cursor = conexion.cursor()
 
-    # Crear la consulta SQL para insertar una película
     consulta = """
         INSERT INTO peliculas (nombre, genero, duracion, inventario) 
         VALUES (%s, %s, %s, %s)
     """
 
-    # Ejecutar la consulta
     cursor.execute(consulta, (nombre, genero, duracion, inventario))
 
-    
-    # Obtener el ID del usuario recién insertado
     id_pelicula = cursor.lastrowid
-    # Hacer commit para aplicar los cambios
     conexion.commit()
 
     return id_pelicula
 
+#Funcion para genrar una fecha aleatoria para las rentas
 def generar_fecha_aleatoria():
-    fecha_inicio = datetime(2024, 1, 1)
-    fecha_fin = datetime(2024, 2, 29)
+    fecha_inicio = datetime(2022, 1, 1)
+    fecha_fin = datetime(2024, 12, 31)
 
     diferencia_dias = (fecha_fin - fecha_inicio).days
     fecha_aleatoria = fecha_inicio + timedelta(days=random.randint(0, diferencia_dias),
@@ -243,17 +189,17 @@ def generar_fecha_aleatoria():
     return fecha_aleatoria
 
 
-
+#Funcion main para interactuar con las operaciones que puede realizar el programa
 def main():
     while True:
-        print("Selecciona una opción:")
+        print("Selecciona una opcion:")
         print("1. Insertar usuario aleatorio")
         print("2. Filtrar usuarios por apellido")
-        print("3. Cambiar género de una película")
+        print("3. Cambiar genero de una pelicula dado el nombre")
         print("4. Eliminar rentas")
         print("5. Salir")
 
-        opcion = input("Ingresa el número de la opción: ")
+        opcion = input("Ingresa el numero de la opcion: ")
 
         if opcion == "1":
             insertar_aleatorio()
@@ -261,8 +207,8 @@ def main():
             apellido = input("Ingresa el apellido para filtrar usuarios: ")
             filtrar_usuarios_por_apellido(apellido)
         elif opcion == "3":
-            nombre = input("Ingresa el nombre de la película: ")
-            nuevo_genero = input("Ingresa el nuevo género de la película: ")
+            nombre = input("Ingresa el nombre de la pelicula: ")
+            nuevo_genero = input("Ingresa el nuevo genero de la pelicula: ")
             cambiar_genero_pelicula(nombre, nuevo_genero)
         elif opcion == "4":
             eliminar_rentas()
@@ -270,7 +216,7 @@ def main():
             print("Saliendo del programa.")
             break
         else:
-            print("Opción no válida. Ingresa un número del 1 al 5.")
+            print("Opcion no valida. Ingresa un numero del 1 al 5.")
 
 if __name__ == "__main__":
     main()

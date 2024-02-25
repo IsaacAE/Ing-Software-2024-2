@@ -111,9 +111,6 @@ if __name__ == '__main__':
                         print("Dicho formato de fecha no es valido.")
                         continue
 
-                
-                
-            
             elif opcion == 4:
                 tabla = obtener_tabla_usuario()
                 
