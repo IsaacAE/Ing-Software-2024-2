@@ -14,7 +14,7 @@ app.config.from_mapping(
 )
 db.init_app(app)
 
-def menu():
+def mostrar_menu():
     print("### MENU ###")
     print("1. Consultar registros de una tabla.")
     print("2. Buscar registro de una tabla mediante el ID.")
@@ -48,7 +48,7 @@ def obtener_tabla_usuario():
 if __name__ == '__main__':
     with app.app_context():
         while True:
-            menu()
+            mostrar_menu()
 
             try:
                 opcion = int(input("Seleccione una opción (1-5): "))
