@@ -2,16 +2,108 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pagina perrona</title>
+    <title>ClonBuster</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #000000; /* Color de fondo oscuro */
+        }
+        .card {
+            height: 100vh; /* Ocupa toda la altura de la pantalla */
+        }
+        .btn-group-vertical .btn {
+            margin-bottom: 60px; /* Aumenta el margen inferior de los botones */
+            border-radius: 15px; /* Define la forma redondeada de los botones */
+        }
+        .btn-outline-info {
+            background-color: #811bc5; /* Color de fondo azul */
+            border-color: #33003d; /* Color del borde azul */
+            text-decoration-color: #bb088e;
+        }
+        .btn-outline-info:hover {
+            background-color: #bb088e; /* Color de fondo azul oscuro al pasar el ratón */
+            border-color: #b1079a; /* Color del borde azul oscuro al pasar el ratón */
+        }
+        .text-white {
+            color: #fa9cf2 !important; /* Texto blanco */
+        }
+        .bg-info {
+            background-color: #ab4de2 !important; /* Color de fondo azul claro */
+        }
+
+          /* Estilos personalizados para los enlaces */
+        .btn.btn-outline-info a {
+            color: #ff00ea; /* Cambiar color de texto a azul */
+            text-decoration: none; /* Eliminar subrayado */
+        }
+       
+        /* Color del borde de las secciones */
+        .card-header {
+            border-bottom: 2px solid #ff00d4; /* Color del borde azul */
+        }
+
+        .btn.btn-outline-info[href] {
+        color: #000000; /* Cambiar color de texto a azul */
+        text-decoration: none; /* Eliminar subrayado */
+    }
+    
+    </style>
 </head>
 <body>
-    <h1>Hello from HTML bueno AhoraSi</h1>
-    <ul>
-        <li>Version 1.0</li>
-        <li>Version 2.0</li>
-        <li>Version 2.1</li>
-    </ul>
-    <button>Button</button>
-    <a href="/">Click me!</a>
+    <nav class="navbar bg-body-tertiary bg-info">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 text-black fuente-grande">ClonBuster</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-white bg-dark mb-3 border-info">
+                    <div class="card-header">Usuarios</div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Usuarios</h4>
+                        <div class="btn-group-vertical btn-group-lg">
+                            <a class="btn btn-outline-info" href="/crear_usuario">Crear Usuario</a>
+                            <a class="btn btn-outline-info" href="/ver_usuarios">Ver Usuarios</a>
+                            <a class="btn btn-outline-info" href="/actualizar_usuario">Actualizar Usuario</a>
+                            <a class="btn btn-outline-info" href="/eliminar_usuario">Eliminar Usuario</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-white bg-dark mb-3 border-info">
+                    <div class="card-header">Peliculas</div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Peliculas</h4>
+                        <div class="btn-group-vertical btn-group-lg">
+                            <a class="btn btn-outline-info" href="/crear_pelicula">Crear Película</a>
+                            <a class="btn btn-outline-info" href="/ver_peliculas">Ver Películas</a>
+                            <a class="btn btn-outline-info" href="/actualizar_pelicula">Actualizar Película</a>
+                            <a class="btn btn-outline-info" href="/eliminar_pelicula">Eliminar Película</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card text-white bg-dark mb-3 border-info">
+                    <div class="card-header">Rentas</div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Rentas</h4>
+                        <div class="btn-group-vertical btn-group-lg">
+                            <a class="btn btn-outline-info" href="/crear_renta">Crear Renta</a>
+                            <a class="btn btn-outline-info" href="/ver_rentas">Ver Rentas</a>
+                            <a class="btn btn-outline-info" href="/actualizar_renta">Actualizar Estado de Renta</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>  
 </body>
 </html>
