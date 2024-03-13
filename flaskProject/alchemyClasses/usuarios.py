@@ -3,6 +3,18 @@ from base64 import b64encode
 from sqlalchemy import Column, Integer, String, LargeBinary, CheckConstraint 
 from alchemyClasses import db
 
+def cifrar_password(password):
+    # Creamos un objeto de hash SHA-256
+    hash_obj = SHA256.new()
+
+    # Convertimos la contraseña a bytes y actualizamos el hash
+    hash_obj.update(password.encode('utf-8'))
+
+    # Obtenemos el hash en formato de bytes
+    password_hash = hash_obj.digest()
+
+    # Convertimos el hash a una cadena Base64 para almacenarlo de forma segura
+    return b64encode(password_hash).decode('utf-8')
 
 class usuarios(db.Model):
     __tablename__ ='usuarios'
@@ -15,27 +27,18 @@ class usuarios(db.Model):
     profilePicture = Column(LargeBinary, nullable=True)
     superUser = Column(Integer, CheckConstraint('duracion IN (0, 1)'), nullable=True) 
 
-    def _cifrar_password(self, password):
-        # Creamos un objeto de hash SHA-256
-        hash_obj = SHA256.new()
-
-        # Convertimos la contraseña a bytes y actualizamos el hash
-        hash_obj.update(password.encode('utf-8'))
-
-        # Obtenemos el hash en formato de bytes
-        password_hash = hash_obj.digest()
-
-        # Convertimos el hash a una cadena Base64 para almacenarlo de forma segura
-        return b64encode(password_hash).decode('utf-8')
-
+   
     def __init__(self, nombre, apPat, password, apMat=None, email=None, profilePicture=None, superUser=None):
             self.nombre = nombre
             self.apPat = apPat
             self.apMat = apMat
-            self.password = self._cifrar_password(password)
+            self.password = cifrar_password(password)
             self.email = email
             self.profilePicture = profilePicture
             self.superUser = superUser
+
+
+
 
     def __str__(self):
         return f"ID: {self.idUsuario}\n" \

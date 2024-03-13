@@ -1,44 +1,46 @@
 from alchemyClasses.usuarios import usuarios
 from alchemyClasses import db
 
-def consultar_registros_usuarios():
-    for usuario in usuarios.query.all():
-        print(usuario)
+# Función para crear un nuevo usuario
+def crear_usuario(nombre, apPat, password, apMat=None, email=None, profilePicture=None, superUser=None):
+    nuevo_usuario = usuarios(nombre=nombre, apPat=apPat, password=password, apMat=apMat, email=email, profilePicture=profilePicture, superUser=superUser)
+    db.session.add(nuevo_usuario)
+    db.session.commit()
+    return nuevo_usuario
 
-def filtrar_id_usuario(id_usuario):
-    usuario = usuarios.query.filter_by(idUsuario=id_usuario).first()
-    if usuario is None:
-        print("No existe algun usuario con dicho ID.")
-    else:
-        print(usuario)
-        
-def cambiar_columna_nombre_usuario(id_usuario,nombre):
-    usuario = usuarios.query.filter(usuarios.idUsuario==id_usuario).first()
-    if usuario is None:
-       print("No existe algun usuario con dicho ID") 
-    else:
-        usuario.nombre= nombre
-        db.session.commit()
-        print("Se ha actualizado el usuario con ID: "+ str(id_usuario) + " a tener el nombre: "+ nombre)
 
-def eliminar_id_usuario(id_usuario):
-    if not id_usuario :
-        eliminar_tabla_usuarios()
-    else:
-        usuario = usuarios.query.get(id_usuario)
-        if usuario is None:
-            print("No existe algun usuario con dicho ID.")
-        else:
-            db.session.delete(usuario)
-            db.session.commit()
-            print(f"Usuario con ID {id_usuario} eliminado exitosamente.")
 
-def eliminar_tabla_usuarios():
-    confirmacion = input("Deseas eliminar todos los elementos de la tabla 'usuarios'? (Y/N):")
-    if confirmacion == 'Y':
-        for usuario in usuarios.query.all():
-            db.session.delete(usuario)
-        db.session.commit()
-        print("Todos los elementos de la tabla 'usuarios' han sido eliminados.")
-    else:
-        print("No se han eliminado los elementos de la tabla 'usuarios'.")
+
+# Función para obtener todos los usuarios
+def leer_usuarios():
+    return usuarios.query.all()
+
+# Función para obtener un usuario por su ID
+def leer_usuario_por_id(id):
+    return usuarios.query.get(id)
+
+# Función para actualizar un usuario por su ID
+def actualizar_usuario(id, nombre=None, apPat=None, apMat=None, password=None, email=None, profilePicture=None, superUser=None):
+    usuario = usuarios.query.get(id)
+    if nombre:
+        usuario.nombre = nombre
+    if apPat:
+        usuario.apPat = apPat
+    if apMat:
+        usuario.apMat = apMat
+    if password:
+        usuario.password = usuario.cifrar_password(password)
+    if email:
+        usuario.email = email
+    if profilePicture:
+        usuario.profilePicture = profilePicture
+    if superUser is not None:
+        usuario.superUser = superUser
+    db.session.commit()
+    return usuario
+
+# Función para eliminar un usuario por su ID
+def eliminar_usuario(id):
+    usuario = usuarios.query.get(id)
+    db.session.delete(usuario)
+    db.session.commit()
