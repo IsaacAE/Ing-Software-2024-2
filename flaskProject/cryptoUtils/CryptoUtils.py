@@ -6,7 +6,6 @@ from hashlib import sha256
 plainkey='RGV2ZWxvcGVyQ29kZTIhQA=='
 iv = b'8\xc0-\x93\x0f\nR^\x973\x1a\xeb]\xeb\xae\x89'
 
-
 def cipher(data):
     data_hex = data.encode('utf-8')
     key = b64encode(plainkey.encode('utf-8'))
