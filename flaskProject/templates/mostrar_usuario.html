@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Usuario</title>
+    <style>
+        body {
+            background-color: #3a1c52; /* Azul oscuro */
+            color: #dbc7c7; /* Texto blanco */
+            font-size: 20px; /* Tamaño de fuente grande */
+            font-family: Arial, sans-serif; /* Fuente */
+            margin: 0; /* Eliminar margen predeterminado */
+            padding: 0; /* Eliminar relleno predeterminado */
+            overflow: hidden; /* Ocultar barras de desplazamiento */
+        }
+        .user-details {
+            background-color: #47097a; /* Azul oscuro más oscuro */
+            padding: 20px; /* Espacio interno */
+            border-radius: 10px; /* Borde redondeado */
+            width: 50%; /* Ancho del contenedor */
+            margin: auto; /* Centrar horizontalmente */
+            margin-top: 20vh; /* Espacio superior */
+        }
+        .user-details h2 {
+            font-size: 24px; /* Tamaño de fuente grande */
+            font-weight: bold; /* Texto en negrita */
+            margin-bottom: 20px; /* Espacio inferior */
+        }
+        .user-data {
+            margin-bottom: 10px; /* Espacio inferior */
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #300057; /* Azul oscuro */
+            color: #ffffff; /* Texto blanco */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Espacio interno */
+            font-size: 20px; /* Tamaño de fuente grande */
+            border-radius: 5px; /* Borde redondeado */
+            cursor: pointer; /* Cambiar cursor al pasar el ratón */
+            transition: background-color 0.3s; /* Transición para el cambio de color de fondo */
+        }
+        .button:hover {
+            background-color: #7a2aaf; /* Azul más oscuro */
+        }
+    </style>
+</head>
+<body>
+    <div class="user-details">
+        <h2>Detalle de Usuario</h2>
+        <div class="user-data">
+            <strong>ID:</strong> {{ usuario.idUsuario }}<br>
+            <strong>Nombre:</strong> {{ usuario.nombre }}<br>
+            <strong>Apellido Paterno:</strong> {{ usuario.apPat }}<br>
+            <strong>Apellido Materno:</strong> {{ usuario.apMat }}<br>
+            <strong>Email:</strong> {{ usuario.email }}<br>
+            <strong>Super Usuario:</strong> {{ usuario.superUser }}<br>
+        </div>
+        <div class="button-container">
+            <button class="button" onclick="cerrarVentana()">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        function cerrarVentana() {
+            window.close();
+        }
+    </script>
+</body>
+</html>
+
