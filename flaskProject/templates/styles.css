@@ -1,0 +1,61 @@
+body {
+            background-color: #000000; /* Color de fondo oscuro */
+        }
+        .card {
+            height: 100vh; /* Ocupa toda la altura de la pantalla */
+         
+            border-color: #ff00d4; /* Cambiar color del borde a rosa */
+    
+        }
+        .card.border-info {
+        border-color: #ff00d4; /* Cambiar color del borde a rosa */
+        }
+        .btn-group-vertical .btn {
+            margin-bottom: 60px; /* Aumenta el margen inferior de los botones */
+            border-radius: 15px; /* Define la forma redondeada de los botones */
+        }
+        .btn-outline-info {
+            background-color: #811bc5; /* Color de fondo azul */
+            border-color: #33003d; /* Color del borde azul */
+            text-decoration-color: #bb088e;
+        }
+        .btn-outline-info:hover {
+            background-color: #bb088e; /* Color de fondo azul oscuro al pasar el ratón */
+            border-color: #b1079a; /* Color del borde azul oscuro al pasar el ratón */
+        }
+        .text-white {
+            color: #fa9cf2 !important; /* Texto blanco */
+        }
+        .bg-info {
+            background-color: #ab4de2 !important; /* Color de fondo azul claro */
+        }
+
+          /* Estilos personalizados para los enlaces */
+        .btn.btn-outline-info a {
+            color: #ff00ea; /* Cambiar color de texto a azul */
+            text-decoration: none; /* Eliminar subrayado */
+        }
+       
+        /* Color del borde de las secciones */
+        .card-header {
+            border-bottom: 2px solid #ff00d4; /* Color del borde azul */
+        }
+
+        .btn.btn-outline-info[href] {
+        color: #000000; /* Cambiar color de texto a azul */
+        text-decoration: none; /* Eliminar subrayado */
+    }
+    
+     .message-container {
+            background-color: #57029c; /* Color de fondo del contenedor */
+            padding: 20px; /* Espaciado interior del contenedor */
+            border-radius: 10px; /* Borde redondeado */
+            text-align: center; /* Centrar texto */
+        }
+        .message {
+            font-size: 24px; /* Tamaño de fuente grande */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+       
+       

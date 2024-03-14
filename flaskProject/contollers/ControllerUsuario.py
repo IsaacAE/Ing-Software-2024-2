@@ -56,9 +56,9 @@ def agregar_usuario():
         retorno = mu.crear_usuario(nombre, apellidoP, password, apellidoM, correo, None, superuser)
         
         if retorno == -1:
-            return render_template("crear_usuario.html", mensaje="El correo ingresado ya existe, intente con otro correo", nombre = nombre, apellidoP = apellidoP, apellidoM = apellidoM, superuser = superuser, password = password)
+            return render_template("mensaje.html", mensaje="Ha habido un error al crear ese usuario")
         else:
-            return render_template("user_added.html", mensaje="Usuario creado con éxito")
+            return render_template("mensaje.html", mensaje="Usuario creado con éxito")
     
     
     
@@ -86,15 +86,19 @@ def actualizar_usuario():
         print(password)
         
         if 'superUser' in request.form:
-            superuser = 1
+            superuser_value = int(request.form["superUser"])
+            if superuser_value == 1 or superuser_value == 0:
+                superuser = superuser_value
+            else:
+               superuser=None
         else:
-            superuser = 0
-        print(superuser)
+            superuser=None
+            
             
         
-        retorno = mu.actualizar_usuario(id, nombre, apellidoP, password, apellidoM, correo, None, superuser)
+        retorno = mu.actualizar_usuario(id, nombre, apellidoP, apellidoM, password, correo, None, superuser)
         
         if retorno == -1:
-            return render_template("add_user.html", mensaje="El correo ingresado ya existe, intente con otro correo", nombre = nombre, apellidoP = apellidoP, apellidoM = apellidoM, superuser = superuser, password = password)
+            return render_template("mensaje.html", mensaje="Ha habido un error al querer actualizar")
         else:
-            return render_template("user_added.html", mensaje="Usuario creado con éxito")
+            return render_template("mensaje.html", mensaje="Usuario actualizado con éxito")

@@ -59,7 +59,7 @@
         select:hover {
             border-color: #d464f6; /* Cambiar color del borde al pasar el ratón */
         }
-        input[type="submit"] {
+        button[type="submit"] {
             background-color: #300057; /* Azul oscuro */
             color: #dddddd; /* Texto blanco */
             border: none; /* Sin borde */
@@ -69,7 +69,7 @@
             cursor: pointer; /* Cambiar cursor al pasar el ratón */
             transition: background-color 0.3s; /* Transición para el cambio de color de fondo */
         }
-        input[type="submit"]:hover {
+        button[type="submit"]:hover {
             background-color: #d464f6; /* Cambiar color de fondo al pasar el ratón */
         }
         table {
@@ -124,11 +124,15 @@
                 <label for="userId">ID de Usuario:</label>
                 <input type="text" id="userId" name="userId" required>
             </div>
-            <input type="submit" value="Buscar">
+            <button type="submit">Buscar</button> </a>
         </form>
     </div>
     <div class="button-container">
-        <a href="/usuario/leerUsuarios" class="button">Leer Usuarios</a>
+        <a href="/usuario/leerUsuarios" class="button">Mostrar todos los usuarios</a>
+       
+    </div>
+    <div class = "container">
+        <a href="/" ><button type="submit">Regresar al inicio</button> </a>
     </div>
 </body>
 </html>

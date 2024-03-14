@@ -34,6 +34,19 @@
         tr:nth-child(odd) {
             background-color: #47097a; /* Azul oscuro más oscuro */
         }
+        button[type="submit"] {
+            background-color: #300057; /* Azul oscuro */
+            color: #dddddd; /* Texto blanco */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Espacio interno */
+            font-size: 20px; /* Tamaño de fuente grande */
+            border-radius: 5px; /* Borde redondeado */
+            cursor: pointer; /* Cambiar cursor al pasar el ratón */
+            transition: background-color 0.3s; /* Transición para el cambio de color de fondo */
+        }
+        button[type="submit"]:hover {
+            background-color: #d464f6; /* Cambiar color de fondo al pasar el ratón */
+        }
     </style>
 </head>
 <body>
@@ -64,5 +77,8 @@
             {% endfor %}
         </tbody>
     </table>
+    <div class = "container">
+        <a href="/" ><button type="submit">Regresar al inicio</button> </a>
+    </div>
 </body>
 </html>

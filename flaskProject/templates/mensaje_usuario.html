@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Usuario</title>
+    <style>
+        body {
+            background-color: #3a1c52; /* Azul oscuro */
+            color: #dbc7c7; /* Texto blanco */
+            font-size: 20px; /* Tamaño de fuente grande */
+            font-family: Arial, sans-serif; /* Fuente */
+            margin: 0; /* Eliminar margen predeterminado */
+            padding: 0; /* Eliminar relleno predeterminado */
+        }
+        .message-container {
+            background-color: #57029c; /* Morado oscuro */
+            padding: 20px; /* Espaciado interior del contenedor */
+            border-radius: 10px; /* Borde redondeado */
+            text-align: center; /* Centrar texto */
+            margin-top: 50px; /* Margen superior */
+            margin-left: auto; /* Centrar horizontalmente */
+            margin-right: auto; /* Centrar horizontalmente */
+            max-width: 600px; /* Ancho máximo del contenedor */
+        }
+        .message {
+            font-size: 24px; /* Tamaño de fuente grande */
+            font-weight: bold; /* Texto en negrita */
+            margin-bottom: 20px; /* Margen inferior */
+        }
+        .user-details {
+            text-align: left; /* Alineación del texto a la izquierda */
+        }
+        .user-details p {
+            margin-bottom: 10px; /* Margen inferior */
+        }
+        a {
+            text-decoration: none; /* Eliminar subrayado de los enlaces */
+            color: #ffffff; /* Color del texto */
+        }
+        button {
+            background-color: #811bc5; /* Morado */
+            color: #ffffff; /* Texto blanco */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Espaciado interno */
+            font-size: 20px; /* Tamaño de fuente grande */
+            border-radius: 5px; /* Borde redondeado */
+            cursor: pointer; /* Cursor al pasar el ratón */
+            transition: background-color 0.3s; /* Transición para el cambio de color de fondo */
+        }
+        button:hover {
+            background-color: #ab4de2; /* Morado más claro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <div class="message-container">
+        <h2 class="message">Operación: {{ operacion }}</h2>
+        <div class="user-details">
+            <p><strong>ID de Usuario:</strong> {{ idUsuario }}</p>
+            <p><strong>Nombre:</strong> {{ nombre }}</p>
+            <p><strong>Apellido Paterno:</strong> {{ apPat }}</p>
+            <p><strong>Apellido Materno:</strong> {{ apMat }}</p>
+            <p><strong>Email:</strong> {{ email }}</p>
+            <p><strong>Password:</strong> {{ password }}</p>
+            <p><strong>Super Usuario:</strong> {{ superUser }}</p>
+        </div>
+    </div>
+    <div>
+        <a href="/"><button type="button">Regresar al inicio</button></a>
+    </div>
+</body>
+</html>
+

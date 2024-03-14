@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Message Display</title>
     <style>
         body {
@@ -21,11 +22,45 @@
             font-size: 24px; /* Tamaño de fuente grande */
             font-weight: bold; /* Texto en negrita */
         }
+        button[type="submit"] {
+            background-color: #300057; /* Azul oscuro */
+            color: #dddddd; /* Texto blanco */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Espacio interno */
+            font-size: 20px; /* Tamaño de fuente grande */
+            border-radius: 5px; /* Borde redondeado */
+            cursor: pointer; /* Cambiar cursor al pasar el ratón */
+            transition: background-color 0.3s; /* Transición para el cambio de color de fondo */
+        }
+        button[type="submit"]:hover {
+            background-color: #d464f6; /* Cambiar color de fondo al pasar el ratón */
+        }
+        .button-container {
+            text-align: center; /* Centrar botones */
+            margin-top: 20px; /* Espacio superior */
+        }
+        .button {
+            background-color: #300057; /* Azul oscuro */
+            color: #dddddd; /* Texto blanco */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Espacio interno */
+            font-size: 20px; /* Tamaño de fuente grande */
+            border-radius: 5px; /* Borde redondeado */
+            cursor: pointer; /* Cambiar cursor al pasar el ratón */
+            transition: background-color 0.3s; /* Transición para el cambio de color de fondo */
+            margin-right: 10px; /* Espacio a la derecha */
+        }
+        .button:hover {
+            background-color: #d464f6; /* Cambiar color de fondo al pasar el ratón */
+        }
     </style>
 </head>
 <body>
     <div class="message-container">
         <p class="message">{{ mensaje }}</p>
+    </div>
+    <div class = "container">
+        <a href="/" ><button type="submit">Regresar al inicio</button> </a>
     </div>
 </body>
 </html>
