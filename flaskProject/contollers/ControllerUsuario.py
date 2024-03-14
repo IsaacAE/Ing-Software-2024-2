@@ -24,9 +24,9 @@ def eliminar_usuario_por_id():
         retorno = mu.eliminar_usuario(id)
          
         if retorno == -1:
-            return render_template("borrar_usuarios.html", mensaje="El correo ingresado ya existe, intente con otro correo", nombre = nombre, apellidoP = apellidoP, apellidoM = apellidoM, superuser = superuser, password = password)
+            return render_template("mensaje.html", mensaje="Ha habido un error al intentar borrar")
         else:
-            return render_template("user_added.html", mensaje="Usuario creado con éxito")
+            return render_template("mensaje.html", mensaje="Usuario borrado con éxito")
 
 
 @usuario_blueprint.route('/registro', methods=['GET', 'POST'])
@@ -56,7 +56,7 @@ def agregar_usuario():
         retorno = mu.crear_usuario(nombre, apellidoP, password, apellidoM, correo, None, superuser)
         
         if retorno == -1:
-            return render_template("add_user.html", mensaje="El correo ingresado ya existe, intente con otro correo", nombre = nombre, apellidoP = apellidoP, apellidoM = apellidoM, superuser = superuser, password = password)
+            return render_template("crear_usuario.html", mensaje="El correo ingresado ya existe, intente con otro correo", nombre = nombre, apellidoP = apellidoP, apellidoM = apellidoM, superuser = superuser, password = password)
         else:
             return render_template("user_added.html", mensaje="Usuario creado con éxito")
     
