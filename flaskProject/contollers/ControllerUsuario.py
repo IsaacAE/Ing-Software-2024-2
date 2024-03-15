@@ -11,7 +11,10 @@ def mostrar_usuario_por_id():
 
         id = request.form["userId"]
         usuario = mu.leer_usuario_por_id(id)
-        return render_template("mostrar_usuario.html", usuario=usuario)
+        if usuario is not None:
+           return render_template("mostrar_usuario.html", usuario=usuario)
+        else:
+            return render_template("mensaje.html", mensaje= "No existe usuario con dicho Id")
      
 @usuario_blueprint.route('/borrar', methods=['GET', 'POST'])
 def eliminar_usuario_por_id():

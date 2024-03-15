@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borrar Usuario</title>
+    <title>Consulta de Película</title>
     <style>
         body {
             background-color: #3a1c52; /* Azul oscuro */
@@ -72,48 +72,70 @@
         button[type="submit"]:hover {
             background-color: #d464f6; /* Cambiar color de fondo al pasar el ratón */
         }
+        table {
+            max-width: 100%; /* Ancho máximo de la tabla */
+            width: auto; /* Ancho automático */
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-left: auto; /* Centrar la tabla horizontalmente */
+            margin-right: auto; /* Centrar la tabla horizontalmente */
+        }
+        th, td {
+            border: 2px solid #470047; /* Borde más oscuro */
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #47097a; /* Azul oscuro más oscuro */
+            color: #dbc7c7; /* Texto blanco */
+        }
+        tr:nth-child(even) {
+            background-color: #57029c; /* Azul más claro */
+        }
+        tr:hover {
+            background-color: #7a2aaf; /* Azul más oscuro */
+        }
         .button-container {
-            text-align: center; /* Centrar botones */
-            margin-top: 20px; /* Espacio superior */
+            text-align: center;
+            margin-top: 20px;
         }
         .button {
             background-color: #300057; /* Azul oscuro */
-            color: #dddddd; /* Texto blanco */
+            color: #ffffff; /* Texto blanco */
             border: none; /* Sin borde */
             padding: 10px 20px; /* Espacio interno */
             font-size: 20px; /* Tamaño de fuente grande */
             border-radius: 5px; /* Borde redondeado */
             cursor: pointer; /* Cambiar cursor al pasar el ratón */
             transition: background-color 0.3s; /* Transición para el cambio de color de fondo */
-            margin-right: 10px; /* Espacio a la derecha */
         }
         .button:hover {
-            background-color: #d464f6; /* Cambiar color de fondo al pasar el ratón */
+            background-color: #7a2aaf; /* Azul más oscuro */
         }
     </style>
 </head>
 <body>
     <div class="header-bar">
-        <span class="header-text">NOTA: si no ingresas ningún ID, se borrarán todos los usuarios</span>
-    </div>
-    <div class="header-bar">
-        <span class="header-text">Borrar Usuario</span>
+        <span class="header-text">Consulta de Película</span>
     </div>
     <div class="form-container">
         <form method="POST">
             <div class="form-group">
-                <label for="userId">ID de Usuario:</label>
-                <input type="text" id="userId" name="userId" >
+                <label for="userId">ID de Película:</label>
+                <input type="text" id="peliculaId" name="peliculaId" required>
             </div>
-            <button type="submit"> Borrar </button>
-            
+            <button type="submit">Buscar</button> </a>
         </form>
-        <div>
-            <a href="/" ><button type="submit">Regresar al inicio</button> </a>
-        </div>
     </div>
-   
-
-    
+    <div class="button-container">
+        <a href="/pelicula/leerPeliculas" class="button">Mostrar todas las peliculas</a>
+       
+    </div>
+    <div class = "container">
+        <a href="/" ><button type="submit">Regresar al inicio</button> </a>
+    </div>
+</body>
 </html>
+
+                   
 

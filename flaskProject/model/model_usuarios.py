@@ -22,6 +22,10 @@ def crear_usuario(nombre, apPat, password, apMat=None, email=None, profilePictur
 def leer_usuarios():
     return usuarios.query.all()
 
+# Función para obtener un usuario por su ID
+def leer_usuario_por_id(id):
+    return usuarios.query.get(id)
+
 
 
 # Función para actualizar un usuario por su ID
@@ -51,16 +55,19 @@ def actualizar_usuario(id, nombre=None, apPat=None, apMat=None, password=None, e
             return -1
 
 
-# Función para obtener un usuario por su ID
-def leer_usuario_por_id(id):
-    return usuarios.query.get(id)
+
 
 def eliminar_usuario(id_usuario):
-    usuario = leer_usuario_por_id(id_usuario)
-    if not usuario:
-        return -1
-        
-    else:
-        db.session.delete(usuario)
+    if not id_usuario:
+        rentar.query.delete()
+        usuarios.query.delete()
         db.session.commit()
         return 0
+    else:
+        usuario = leer_usuario_por_id(id_usuario)
+        if usuario is not None:
+            db.session.delete(usuario)
+            db.session.commit()
+            return 0
+        else:
+            return -1

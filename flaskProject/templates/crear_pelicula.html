@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borrar Usuario</title>
+    <title>Creación de Película</title>
     <style>
         body {
             background-color: #3a1c52; /* Azul oscuro */
@@ -39,6 +39,7 @@
             margin-bottom: 5px; /* Espacio entre etiqueta y campo */
         }
         input[type="text"],
+        input[type="number"],
         input[type="password"],
         input[type="email"],
         select {
@@ -54,6 +55,7 @@
             transition: border-color 0.3s; /* Transición para el cambio de color de borde */
         }
         input[type="text"]:hover,
+        input[type="number"]:hover,
         input[type="password"]:hover,
         input[type="email"]:hover,
         select:hover {
@@ -72,48 +74,35 @@
         button[type="submit"]:hover {
             background-color: #d464f6; /* Cambiar color de fondo al pasar el ratón */
         }
-        .button-container {
-            text-align: center; /* Centrar botones */
-            margin-top: 20px; /* Espacio superior */
-        }
-        .button {
-            background-color: #300057; /* Azul oscuro */
-            color: #dddddd; /* Texto blanco */
-            border: none; /* Sin borde */
-            padding: 10px 20px; /* Espacio interno */
-            font-size: 20px; /* Tamaño de fuente grande */
-            border-radius: 5px; /* Borde redondeado */
-            cursor: pointer; /* Cambiar cursor al pasar el ratón */
-            transition: background-color 0.3s; /* Transición para el cambio de color de fondo */
-            margin-right: 10px; /* Espacio a la derecha */
-        }
-        .button:hover {
-            background-color: #d464f6; /* Cambiar color de fondo al pasar el ratón */
-        }
     </style>
 </head>
 <body>
     <div class="header-bar">
-        <span class="header-text">NOTA: si no ingresas ningún ID, se borrarán todos los usuarios</span>
-    </div>
-    <div class="header-bar">
-        <span class="header-text">Borrar Usuario</span>
+        <span class="header-text">Creación de Película</span>
     </div>
     <div class="form-container">
         <form method="POST">
             <div class="form-group">
-                <label for="userId">ID de Usuario:</label>
-                <input type="text" id="userId" name="userId" >
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
             </div>
-            <button type="submit"> Borrar </button>
-            
+            <div class="form-group">
+                <label for="genero">Género:</label>
+                <input type="text" id="genero" name="genero" required>
+            </div>
+            <div class="form-group">
+                <label for="duracion">Duración:</label>
+                <input type="number" id="duracion" name="duracion">
+            </div>
+            <div class="form-group">
+                <label for="inventario">Inventario:</label>
+                <input type="number" id="inventario" name="inventario" required>
+            </div>
+            <button type="submit" > Guardar </button>
         </form>
-        <div>
+        <div class = "container">
             <a href="/" ><button type="submit">Regresar al inicio</button> </a>
         </div>
     </div>
-   
-
-    
+</body>
 </html>
-
