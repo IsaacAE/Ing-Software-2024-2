@@ -53,9 +53,9 @@ def agregar_pelicula():
         retorno = mp.crear_pelicula(nombre, genero, duracion, inventario)
         
         if retorno == -1:
-            return render_template("mensaje.html", mensaje="Ha habido un error al crear ese usuario")
+            return render_template("mensaje.html", mensaje="Ha habido un error al crear esa película")
         else:
-            return render_template("mensaje.html", mensaje="Pelicula creado con éxito")
+            return render_template("mensaje.html", mensaje="Pelicula creada con éxito")
     
     
     
@@ -87,4 +87,4 @@ def actualizar_pelicula():
         if retorno == -1:
             return render_template("mensaje.html", mensaje="Ha habido un error al querer actualizar")
         else:
-            return render_template("mensaje.html", mensaje="Película actualizado con éxito")
+            return render_template("mensaje.html", mensaje="Película actualizada con éxito")

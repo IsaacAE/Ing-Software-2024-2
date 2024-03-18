@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creación de Renta</title>
+    <style>
+        body {
+            background-color: #3a1c52; /* Azul oscuro */
+            color: #dbc7c7; /* Texto blanco */
+            font-size: 20px; /* Tamaño de fuente grande */
+            font-family: Arial, sans-serif; /* Fuente */
+            margin: 0; /* Eliminar margen predeterminado */
+            padding: 0; /* Eliminar relleno predeterminado */
+        }
+        .header-bar {
+            background-color: #47097a; /* Azul oscuro más oscuro */
+            padding: 10px 0; /* Espacio interno */
+            text-align: center; /* Centrar texto */
+        }
+        .header-text {
+            font-size: 24px; /* Tamaño de fuente grande */
+            font-weight: bold; /* Texto en negrita */
+        }
+        .form-container {
+            background-color: #47097a; /* Azul */
+            padding: 20px; /* Espacio interno */
+            border: 5px solid #470047; /* Borde más oscuro */
+            border-radius: 10px; /* Borde redondeado */
+            width: 50%; /* Ancho del contenedor */
+            margin: auto; /* Centrar horizontalmente */
+            margin-top: 20px; /* Espacio superior */
+        }
+        .form-group {
+            margin-bottom: 20px; /* Espacio entre grupos de campos */
+        }
+        label {
+            display: block; /* Convertir en bloque para separar verticalmente */
+            margin-bottom: 5px; /* Espacio entre etiqueta y campo */
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="password"],
+        input[type="email"],
+        select {
+            width: calc(100% - 22px); /* Ancho menos el espacio para el borde */
+            padding: 10px; /* Espacio interno */
+            font-size: 20px; /* Tamaño de fuente grande */
+            border: 2px solid #470047; /* Borde más oscuro */
+            border-radius: 5px; /* Borde redondeado */
+            color: #dbc7c7;; /* Texto blanco */
+            background-color: #57029c; /* Azul más claro */
+            display: inline-block; /* Mostrar en línea */
+            box-sizing: border-box; /* Incluir el borde en el cálculo del ancho */
+            transition: border-color 0.3s; /* Transición para el cambio de color de borde */
+        }
+        input[type="text"]:hover,
+        input[type="number"]:hover,
+        input[type="password"]:hover,
+        input[type="email"]:hover,
+        select:hover {
+            border-color: #d464f6; /* Cambiar color del borde al pasar el ratón */
+        }
+        button[type="submit"] {
+            background-color: #300057; /* Azul oscuro */
+            color: #dddddd; /* Texto blanco */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Espacio interno */
+            font-size: 20px; /* Tamaño de fuente grande */
+            border-radius: 5px; /* Borde redondeado */
+            cursor: pointer; /* Cambiar cursor al pasar el ratón */
+            transition: background-color 0.3s; /* Transición para el cambio de color de fondo */
+        }
+        button[type="submit"]:hover {
+            background-color: #d464f6; /* Cambiar color de fondo al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <span class="header-text">Creación de Renta</span>
+    </div>
+    <div class="form-container">
+        <form method="POST">
+            <div class="form-group">
+                <label for="userId">ID Usuario:</label>
+                <input type="number" id="userId" name="userId" required>
+            </div>
+            <div class="form-group">
+                <label for="peliculaId">ID Película:</label>
+                <input type="number" id="peliculaId" name="peliculaId" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha">Fecha:</label>
+                <input type="text" placeholder="YYYY-MM-DD" id="fecha" name="fecha">
+            </div>
+            <div class="form-group">
+                <label for="diasRenta">Días de renta:</label>
+                <input type="number" id="diasRenta" name="diasRenta" required>
+            </div>
+            <div class="form-group">
+                <label for="estatus">Estatus:</label>
+                <select id="estatus" name="estatus">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                </select>
+            </div>
+            <button type="submit" > Guardar </button>
+        </form>
+        <div class = "container">
+            <a href="/" ><button type="submit">Regresar al inicio</button> </a>
+        </div>
+    </div>
+</body>
+</html>
+

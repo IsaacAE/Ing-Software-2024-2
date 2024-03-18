@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Renta</title>
+    <style>
+        body {
+            background-color: #3a1c52; /* Azul oscuro */
+            color: #dbc7c7; /* Texto blanco */
+            font-size: 20px; /* Tamaño de fuente grande */
+            font-family: Arial, sans-serif; /* Fuente */
+            margin: 0; /* Eliminar margen predeterminado */
+            padding: 0; /* Eliminar relleno predeterminado */
+            overflow: hidden; /* Ocultar barras de desplazamiento */
+        }
+        .renta-details {
+            background-color: #47097a; /* Azul oscuro más oscuro */
+            padding: 20px; /* Espacio interno */
+            border-radius: 10px; /* Borde redondeado */
+            width: 50%; /* Ancho del contenedor */
+            margin: auto; /* Centrar horizontalmente */
+            margin-top: 20vh; /* Espacio superior */
+        }
+        .renta-details h2 {
+            font-size: 24px; /* Tamaño de fuente grande */
+            font-weight: bold; /* Texto en negrita */
+            margin-bottom: 20px; /* Espacio inferior */
+        }
+        .renta-data {
+            margin-bottom: 10px; /* Espacio inferior */
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #300057; /* Azul oscuro */
+            color: #ffffff; /* Texto blanco */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Espacio interno */
+            font-size: 20px; /* Tamaño de fuente grande */
+            border-radius: 5px; /* Borde redondeado */
+            cursor: pointer; /* Cambiar cursor al pasar el ratón */
+            transition: background-color 0.3s; /* Transición para el cambio de color de fondo */
+        }
+        .button:hover {
+            background-color: #7a2aaf; /* Azul más oscuro */
+        }
+        button[type="submit"] {
+            background-color: #300057; /* Azul oscuro */
+            color: #dddddd; /* Texto blanco */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Espacio interno */
+            font-size: 20px; /* Tamaño de fuente grande */
+            border-radius: 5px; /* Borde redondeado */
+            cursor: pointer; /* Cambiar cursor al pasar el ratón */
+            transition: background-color 0.3s; /* Transición para el cambio de color de fondo */
+        }
+        button[type="submit"]:hover {
+            background-color: #d464f6; /* Cambiar color de fondo al pasar el ratón */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="renta-details">
+        <h2>Detalle de Renta</h2>
+        <div class="renta-data">
+            <strong>ID Renta:</strong> {{ renta.idRentar }}<br>
+            <strong>ID User:</strong> {{ renta.idUsuario }}<br>
+            <strong>ID Película:</strong> {{ renta.idPelicula }}<br>
+            <strong>Fecha:</strong> {{ renta.fecha_renta }} minutos<br>
+            <strong>Días de Renta:</strong> {{ renta.dias_de_renta }}<br>
+            <strong>Estatus:</strong> {{ renta.estatus }}<br>
+        </div>
+        <div class = "container">
+            <a href="/" ><button type="submit">Regresar al inicio</button> </a>
+        </div>
+</html>
+
+
+

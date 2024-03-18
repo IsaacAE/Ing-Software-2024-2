@@ -49,10 +49,7 @@ def agregar_usuario():
         password = request.form["password"]
         print(password)
         
-        if 'superUser' in request.form:
-            superuser = 1
-        else:
-            superuser = 0
+        superuser = 1 if request.form.get('superUser') == '1' else 0
         print(superuser)
             
         
