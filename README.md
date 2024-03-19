@@ -1,10 +1,8 @@
-# Ingeniería de Software 2024-2
-Repositorio oficial de la materia de Ingenieria de Software de la Facultad de Ciencias de la UNAM del semestre 2024-2
+# Práctica 3
+NOTAS: Para actualizar basta con dar el ID y cambiar los campos que desean actualizarse.
+Si se da a borrar sin dar un ID se borra toda la tabla en la que se esté.
+El propio HTML indica los campos obligatorios a llenar para crear un nuevo registro.
 
-## Profesores:
+## Elaboró:
 
-- Francisco Valdes Souto
-- Valeria Garcia Landa
-- Fernando Fong
-- Erick Martínez Piza
-- Adriana Hernandez Gasca
+- Alcántara Estrada Kevin Isaac
