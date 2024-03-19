@@ -34,6 +34,13 @@ def agregar_renta():
         print(dias_de_renta)
         estatus = request.form["estatus"]
         print(estatus)
+
+        if dias_de_renta == '':
+            dias_de_renta = 5
+            print("detectado")
+        else:
+            dias_de_renta = int(dias_de_renta)
+            print("No detectado")
      
         retorno = mr.crear_renta(idUsuario, idPelicula, fecha_renta, dias_de_renta,estatus)
         
@@ -56,19 +63,11 @@ def actualizar_renta():
     else:
         idRenta= request.form["rentaId"]
         print(idRenta)
-        idUsuario= request.form["userId"]
-        print(idUsuario)
-        idPelicula= request.form["peliculaId"]
-        print(idPelicula)
-        fecha_renta = request.form["fecha" ]
-        print(fecha_renta)
-        dias_de_renta = request.form["diasRenta" ]
-        print(dias_de_renta)
-        estatus = 1 if request.form.get('estatus') == '1' else 0
+        estatus = request.form.get('estatus')
         print(estatus)
 
               
-        retorno = mr.actualizar_renta(idRenta,idUsuario, idPelicula, fecha_renta, dias_de_renta, estatus)
+        retorno = mr.actualizar_renta(idRenta,None, None, None, None, estatus)
         
         if retorno == -1:
             return render_template("mensaje.html", mensaje="Ha habido un error al querer actualizar")

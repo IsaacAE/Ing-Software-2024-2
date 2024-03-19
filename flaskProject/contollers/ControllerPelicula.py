@@ -46,11 +46,27 @@ def agregar_pelicula():
         print(duracion)
         inventario = request.form["inventario"]
         print(inventario)
-                
+
+        if duracion == '':
+            duracion = None
+            print("detectado")
+        else:
+            duracion = int(duracion)
+            print("No detectado")
+
+        if inventario == '':
+            inventario = 1
+            print("detectado")
+        else:
+            inventario = int(inventario)
+            print("No detectado")
+   
+
+        retorno = mp.crear_pelicula(nombre, genero, duracion, inventario)
        
             
         
-        retorno = mp.crear_pelicula(nombre, genero, duracion, inventario)
+       
         
         if retorno == -1:
             return render_template("mensaje.html", mensaje="Ha habido un error al crear esa película")

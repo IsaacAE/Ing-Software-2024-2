@@ -67,7 +67,7 @@
                 <td>{{ pelicula.idPelicula }}</td>
                 <td>{{ pelicula.nombre }}</td>
                 <td>{{ pelicula.genero }}</td>
-                <td>{{ pelicula.duracion }}</td>
+                <td>{{ pelicula.duracion if pelicula.duracion is not none else ""}}</td>
                 <td>{{ pelicula.inventario }}</td>
             </tr>
             {% endfor %}

@@ -70,7 +70,7 @@
             <strong>ID:</strong> {{ pelicula.idPelicula }}<br>
             <strong>Nombre:</strong> {{ pelicula.nombre }}<br>
             <strong>Género:</strong> {{ pelicula.genero }}<br>
-            <strong>Duración:</strong> {{ pelicula.duracion }} minutos<br>
+            <strong>Duración:</strong> {{ pelicula.duracion if pelicula.duracion is not none else "" }}{{ " minutos" if pelicula.duracion is not none else "" }}<br>
             <strong>Inventario:</strong> {{ pelicula.inventario }}<br>
         </div>
         <div class = "container">
