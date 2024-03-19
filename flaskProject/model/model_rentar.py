@@ -4,12 +4,15 @@ from alchemyClasses import db
 # Función para crear un registro de renta
 def crear_renta(idUsuario, idPelicula, fecha_renta, dias_de_renta=5, estatus=0):
     nueva_renta = rentar(idUsuario=idUsuario, idPelicula=idPelicula, fecha_renta=fecha_renta, dias_de_renta=dias_de_renta, estatus=estatus)
-    try:
-        db.session.add(nueva_renta)
-        db.session.commit()
-        return 0
-    except:
-        return -1
+    if dias_de_renta < 1:
+        return -2
+    else:
+        try:
+            db.session.add(nueva_renta)
+            db.session.commit()
+            return 0
+        except:
+            return -1
 
 # Función para obtener todas las rentas
 def leer_rentas():

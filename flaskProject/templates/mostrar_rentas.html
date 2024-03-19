@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Rentas</title>
@@ -63,16 +64,16 @@
             </tr>
         </thead>
         <tbody>
-            {% for renta in rentas %}
-            <tr>
-                <td>{{ renta.idRentar}}</td>
-                <td>{{ renta.idUsuario }}</td>
-                <td>{{ renta.idPelicula}}</td>
-                <td>{{ renta.fecha_renta }}</td>
-                <td>{{ renta.dias_de_renta }}</td>
-                <td>{{ renta.estatus }}</td>
-            </tr>
-            {% endfor %}
+            {% for i in range(rentas | length) %}
+      <tr>
+        <td>{{ rentas[i].idRentar }}</td>
+        <td>{{ rentas[i].idUsuario }}</td>
+        <td>{{ rentas[i].idPelicula }}</td>
+        <td style="color: {{ 'red' if funados[i] else 'inherit' }}">{{ rentas[i].fecha_renta }}</td>
+        <td>{{ rentas[i].dias_de_renta }}</td>
+        <td>{{ rentas[i].estatus }}</td>
+      </tr>
+    {% endfor %}
         </tbody>
     </table>
     <div class = "container">

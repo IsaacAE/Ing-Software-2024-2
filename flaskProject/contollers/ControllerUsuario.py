@@ -1,4 +1,5 @@
 from flask import Blueprint, request, render_template, flash, url_for, redirect
+
 from model import model_usuarios as mu
 
 usuario_blueprint = Blueprint('usuario', __name__, url_prefix='/usuario')

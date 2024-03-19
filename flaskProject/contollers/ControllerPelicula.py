@@ -49,17 +49,17 @@ def agregar_pelicula():
 
         if duracion == '':
             duracion = None
-            print("detectado")
+            
         else:
             duracion = int(duracion)
-            print("No detectado")
+            
 
         if inventario == '':
             inventario = 1
-            print("detectado")
+            
         else:
             inventario = int(inventario)
-            print("No detectado")
+            
    
 
         retorno = mp.crear_pelicula(nombre, genero, duracion, inventario)
@@ -70,6 +70,8 @@ def agregar_pelicula():
         
         if retorno == -1:
             return render_template("mensaje.html", mensaje="Ha habido un error al crear esa película")
+        elif retorno == -2:
+            return render_template("mensaje.html", mensaje="No se puede crear una película con duración menor a 1")
         else:
             return render_template("mensaje.html", mensaje="Pelicula creada con éxito")
     

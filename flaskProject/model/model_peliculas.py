@@ -4,12 +4,15 @@ from alchemyClasses import db
 
 def crear_pelicula(nombre, genero=None, duracion=None, inventario=1):
     nueva_pelicula = peliculas(nombre=nombre, genero=genero, duracion=duracion, inventario=inventario)
-    try:
-        db.session.add(nueva_pelicula)
-        db.session.commit()
-        return 0
-    except:
-        return -1
+    if duracion < 1:
+        return -2
+    else:
+        try:
+            db.session.add(nueva_pelicula)
+            db.session.commit()
+            return 0
+        except:
+            return -1
 
 def leer_peliculas():
     return peliculas.query.all()

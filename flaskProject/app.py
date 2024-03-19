@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-
+from datetime import datetime,timedelta
 from alchemyClasses import db
 from contollers.ControllerUsuario import usuario_blueprint
 from contollers.ControllerPelicula import pelicula_blueprint
@@ -14,6 +14,7 @@ db.init_app(app)
 app.register_blueprint(usuario_blueprint)
 app.register_blueprint(pelicula_blueprint)
 app.register_blueprint(renta_blueprint)
+
 
 @app.route('/')
 def menu():  # put application's code here

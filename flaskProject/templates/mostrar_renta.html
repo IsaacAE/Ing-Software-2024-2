@@ -70,7 +70,7 @@
             <strong>ID Renta:</strong> {{ renta.idRentar }}<br>
             <strong>ID User:</strong> {{ renta.idUsuario }}<br>
             <strong>ID Película:</strong> {{ renta.idPelicula }}<br>
-            <strong>Fecha:</strong> {{ renta.fecha_renta }} <br>
+            <strong>Fecha Renta:</strong> <span style="color: {{ 'red' if funado else 'inherit' }}">{{ renta.fecha_renta }}</span><br>
             <strong>Días de Renta:</strong> {{ renta.dias_de_renta }}<br>
             <strong>Estatus:</strong> {{ renta.estatus }}<br>
         </div>
