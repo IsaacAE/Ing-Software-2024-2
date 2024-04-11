@@ -1,0 +1,71 @@
+.movies-container {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-image: url('./CinemaPJ.jpg'); /* Fondo con imagen */
+  background-size: auto; /* Tamaño automático para que se repita en cuadrícula */
+  background-repeat: repeat; /* Repetir en cuadrícula */
+  background-color: rgb(226, 96, 21); /* Color de fondo si la imagen no carga */
+}
+
+.banner-movies {
+  background-color: rgba(0, 0, 0, 0.2); /* Banner ligeramente transparente */
+  padding: 20px;
+  color: white;
+  font-size: 24px;
+  transition: background-color 0.3s; /* Transición al pasar el mouse */
+}
+
+.banner-movies:hover {
+  background-color: rgba(0, 0, 0, 0.5); /* Resalte con negro al pasar el mouse */
+  color: gold;
+}
+
+.buttons-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px; /* Aumenta la separación entre los botones */
+}
+
+.action-movies-button {
+  margin: 10px 30px; /* Espacio entre los botones */
+  padding: 30px 50px; /* Botones mucho más grandes */
+  font-size: 1.5em; /* Tamaño de fuente más grande */
+  color: white;
+  background-color: #8B4513; /* Color rojo ladrillo */
+  background: linear-gradient(to bottom, #e93131, #FF6347); /* Gradiente vertical */
+  border: 2px solid black;
+  cursor: pointer;
+  border-radius: 20px; /* Curvatura entre los botones */
+  text-shadow: 8px 8px 10px rgb(255, 255, 255); /* Sombra del texto */
+  transition: background 0.5s ease; /* Transición al pasar el mouse */
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease; /* Transición al pasar el mouse */
+}
+
+.action-movies-button:hover {
+  background-color: rgba(0, 0, 0, 0.5); /* Cambia el color de fondo al pasar el mouse */
+  color: gold; /* Cambia el color del texto al pasar el mouse */
+  background: linear-gradient(to bottom, #FF6347, #e93131); /* Gradiente vertical */
+}
+
+.return-movies-button {
+  margin: 10px 10px; /* Espacio entre los botones */
+  padding: 10px 10px; /* Botones mucho más grandes */
+  font-size: 1.5em; /* Tamaño de fuente más grande */
+  color: white;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: background 0.5s ease; /* Transición al pasar el mouse */
+  background: linear-gradient(to bottom, #e93131, #FF6347); /* Gradiente vertical */
+  border-radius: 20px; /* Curvatura entre los botones */
+  text-shadow: 8px 8px 10px rgb(255, 255, 255); /* Sombra del texto */
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease; /* Transición al pasar el mouse */
+}
+
+.return-movies-button:hover {
+  background-color: rgba(0, 0, 0, 0.5); /* Cambia el color de fondo al pasar el mouse */
+  background: linear-gradient(to bottom, #FF6347, #e93131); /* Gradiente vertical */
+  color: gold; /* Cambia el color del texto al pasar el mouse */
+}
+

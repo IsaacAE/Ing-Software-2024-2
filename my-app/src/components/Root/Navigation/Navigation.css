@@ -1,0 +1,87 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%; /* Altura del 100% de la pantalla */
+  width: 100%;
+  background-image: url('./NavigationBackground.jpg'); /* Imagen de fondo */
+  background-size: cover; /* Cubre toda el área */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No se repite la imagen */
+}
+
+.header-banner {
+  position: fixed;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo ligeramente transparente */
+  padding: 30px 30px;
+  font-size: 2.0em;
+  color: white;
+  text-align: center; /* Texto centrado */
+  z-index: 999; /* Asegura que el banner esté por encima de los botones */
+  transition: background-color 0.3s ease; /* Transición al pasar el mouse */
+}
+
+.header-banner:hover {
+  background-color: rgba(0, 0, 0, 0.9); /* Cambio de color al pasar el mouse */
+}
+
+.content {
+  margin-top: 200px; /* Espacio entre el banner superior y los botones (aumentado) */
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
+}
+
+.footer-buttons button {
+  margin: 160px 30px; /* Espacio entre los botones */
+  padding: 30px 50px; /* Botones mucho más grandes */
+  font-size: 1.5em; /* Tamaño de fuente más grande */
+  background-image: linear-gradient(to bottom, black 0%, transparent 100%); /* Fondo con gradiente lineal vertical */
+  color: black;
+  border: 2px solid black;
+  cursor: pointer;
+  border-radius: 20px; /* Curvatura entre los botones */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  transition: background-image 0.5s ease, color 0.5s ease, border-color 0.5s ease; /* Transición al pasar el mouse */
+}
+
+.footer-buttons button:hover {
+  background-image: linear-gradient(to top, black 0%, transparent 100%); /* Cambio de gradiente al pasar el mouse */
+  color: white; /* Cambio de color del texto al pasar el mouse */
+  border-color: white; /* Cambio de color del borde al pasar el mouse */
+}
+
+
+
+.footer-banner {
+  width: 100%; /* Ancho completo */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo ligeramente transparente */
+  transition: background-color 0.3s ease; /* Transición al pasar el mouse */
+  font-size: 1.8em; /* Tamaño de texto más grande */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, sans-serif; /* Cambia el tipo de letra */
+}
+
+.footer-banner p {
+  animation: moveText 10s linear infinite; /* Animación de movimiento */
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateX(0); /* Posición inicial */
+  }
+  100% {
+    transform: translateX(100%); /* Posición final */
+  }
+}
