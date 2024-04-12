@@ -7,8 +7,8 @@ function UsersCRUD() {
     <div className="users-container">
       <div className="banner">ClonBuster: Usuarios</div>
       <div className="buttons-column">
-      <Link to="/create" className="action-button">Crear</Link>
-      <Link to="/read" className="action-button">Leer</Link>
+      <Link to="/createUser" className="action-button">Crear</Link>
+      <Link to="/readUsers/" className="action-button">Leer</Link>
       <Link to="/update" className="action-button">Actualizar</Link>
       <Link to="/delete" className="action-button">Borrar</Link>
       <Link to="/" className="return-button">Regresar</Link>

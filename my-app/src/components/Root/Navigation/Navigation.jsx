@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Navigation.css';
 
 function Navigation() {
@@ -11,15 +11,15 @@ function Navigation() {
       <div className="content">
         {/* Contenido del componente */}
         <div className="footer-buttons">
-          <Link to="/users">
+          <NavLink to="/users">
             <button>Usuarios</button>
-          </Link>
-          <Link to="/movies">
+          </NavLink>
+          <NavLink to="/movies">
             <button>Películas</button>
-          </Link>
-          <Link to="/rents">
+          </NavLink>
+          <NavLink to="/rents">
             <button>Rentas</button>
-          </Link>
+          </NavLink>
         </div>
       </div>
       <div className="footer-banner">
