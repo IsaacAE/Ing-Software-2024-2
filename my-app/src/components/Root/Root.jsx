@@ -12,6 +12,9 @@ import DeleteMovie from '../Pages/Movies/CRUD/D/MovieDelete.jsx'
 import UserDetails from '../Pages/Users/CRUD/R/UserShow.jsx'
 import MoviesCRUD from '../Pages/Movies/MoviesCRUD.jsx'
 import RentsCRUD from '../Pages/Rents/RentsCRUD.jsx'
+import CreateRent from '../Pages/Rents/CRU/C/RentCreate.jsx'
+import ReadRents from '../Pages/Rents/CRU/R/RentRead.jsx'
+import UpdateRent from '../Pages/Rents/CRU/U/RentUpdate.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
@@ -34,6 +37,10 @@ function Root() {
         <Route path="updateMovie" element={<UpdateMovie/>} />
         <Route path="deleteMovie" element={<DeleteMovie/>} />
         <Route path="rents/*" element={<RentsCRUD />} />
+        <Route path="createRent" element={<CreateRent />} />
+        <Route path="readRent" element={<ReadRents />} />
+        <Route path="updateRent" element={<UpdateRent />} />
+
       </Routes>
     </Router>
   );

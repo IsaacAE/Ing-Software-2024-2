@@ -79,7 +79,7 @@ function eliminarUsuario(idUsuario = null) {
         const index = usuarios.findIndex(usuario => usuario.idUsuario === idUsuario);
         if (index !== -1) {
             // Eliminar las rentas del usuario por su ID
-            rentas = rentas.filter(renta => renta.idUsuario !== idUsuario);
+            eliminarRentasPorIdUsuario(idUsuario);
             // Eliminar usuario por su índice
             usuarios.splice(index, 1);
             return 0; // Éxito
@@ -135,7 +135,7 @@ function eliminarPelicula(idPelicula = null) {
         peliculas.splice(0, peliculas.length);
         
         // Eliminar todas las rentas
-        eliminarRenta(null);
+        rentas.splice(0, rentas.length);
         
         return 0; // Éxito
     } else {
@@ -144,8 +144,7 @@ function eliminarPelicula(idPelicula = null) {
             // Eliminar película por su índice
             peliculas.splice(index, 1);
 
-            // Eliminar las rentas asociadas a la película eliminada
-            eliminarRenta(idPelicula);
+            eliminarRentasPorIdPelicula(idPelicula);
             
             return 0; // Éxito
         } else {
@@ -154,7 +153,7 @@ function eliminarPelicula(idPelicula = null) {
     }
 }
 
-function crearRenta(idUsuario, idPelicula, fecha_renta, dias_de_renta) {
+function crearRenta(idUsuario, idPelicula, fecha_renta, dias_de_renta, estatus) {
     // Verificar si existe un usuario con el id proporcionado
     const usuarioExistente = leerUsuarioPorId(idUsuario);
     if (!usuarioExistente) {
@@ -177,7 +176,7 @@ function crearRenta(idUsuario, idPelicula, fecha_renta, dias_de_renta) {
         idPelicula: idPelicula,
         fecha_renta: fecha_renta,
         dias_de_renta: dias_de_renta,
-        estatus: 0 // 0 para renta activa, 1 para renta finalizada
+        estatus: estatus // 0 para renta activa, 1 para renta finalizada
     });
 
     // Retornar 1 si todo sale bien
@@ -199,20 +198,56 @@ function actualizarRenta(idRentar, estatus) {
     return 0; // Éxito
 }
 
-function eliminarRenta(idRenta = null) {
-    if (idRenta === null) {
-        // Eliminar todas las rentas
-        rentas.splice(0, rentas.length);
-        return 1; // Éxito al eliminar todas las rentas
-    } else {
-        // Eliminar la renta con el ID especificado
-        const index = rentas.findIndex(renta => renta.idRentar === idRenta);
+function eliminarRentasPorIdUsuario(idUsuario) {
+    try {
+        // Obtener las rentas asociadas al idUsuario
+        const rentasUsuario = rentas.filter(renta => renta.idUsuario === idUsuario);
+        
+        // Eliminar cada renta
+        rentasUsuario.forEach((renta) => {
+             eliminarRenta(renta.idRentar);
+        });
+
+        return 0; // Éxito
+    } catch (error) {
+        console.error('Error al eliminar rentas por ID de usuario:', error);
+        return -1; // Error
+    }
+}
+
+function eliminarRentasPorIdPelicula(idPelicula) {
+    try {
+        // Obtener las rentas asociadas al idUsuario
+        const rentasPelicula = rentas.filter(renta => renta.idPelicula === idPelicula);
+        
+        // Eliminar cada renta
+        rentasPelicula.forEach((renta) => {
+             eliminarRenta(renta.idRentar);
+        });
+
+        return 0; // Éxito
+    } catch (error) {
+        console.error('Error al eliminar rentas por ID de usuario:', error);
+        return -1; // Error
+    }
+}
+
+
+
+function eliminarRenta(idRentar) {
+    try {
+
+        const index = rentas.findIndex(renta=> renta.idRentar === idRentar);
         if (index !== -1) {
-            rentas.splice(index, 1); // Eliminar la renta por su índice
-            return 1; // Éxito al eliminar la renta
-        } else {
-            return -1; // Error: renta no encontrada
+           
+            // Eliminar usuario por su índice
+            rentas.splice(index, 1);
+
+        return 0; // Éxito
         }
+    } catch (error) {
+        console.error('Error al eliminar renta:', error);
+        return -1; // Error
     }
 }
 
