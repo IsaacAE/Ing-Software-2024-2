@@ -1,50 +1,60 @@
 import React, { useState } from 'react';
-import { leerRentaPorId, actualizarRenta } from '../../../../../DataBase/DataOperations';
+import { actualizarRenta } from '../../../../../DataBase/DataOperations';
+import { Link } from 'react-router-dom';
+import './RentUpdate.css';
 
-function RentUpdate() {
-    const [searchId, setSearchId] = useState('');
+function UpdateRent() {
+    const [idRentar, setIdRentar] = useState('');
     const [estatus, setEstatus] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
 
-    const actualizarEstatusRenta = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         try {
-            const renta = await leerRentaPorId(parseInt(searchId));
-            if (renta) {
-                const resultado = await actualizarRenta(renta.idRentar, estatus);
-                if (resultado === 0) {
-                    alert('Estatus de renta actualizado correctamente.');
-                } else {
-                    alert('Error al actualizar el estatus de la renta.');
-                }
+            const resultado = await actualizarRenta(parseInt(idRentar), parseInt(estatus));
+            if (resultado === 1) {
+                alert('Renta actualizada correctamente.');
+            } else if (resultado === 0) {
+                setEstatus('');
+                setIdRentar('');
+                alert('Renta actualizada correctamente.');
             } else {
-                alert('No se encontró ninguna renta con ese ID.');
+                alert('Hubo un error al actualizar la renta.');
             }
         } catch (error) {
-            console.error('Error al actualizar estatus de renta:', error);
-            alert('Hubo un error al actualizar el estatus de la renta.');
+            console.error('Error al actualizar renta:', error);
+            alert('Hubo un error al actualizar la renta.');
         }
     };
 
     return (
-        <div>
-            <h2>Actualizar Estatus de Renta</h2>
-            <div>
-                <label>
-                    ID de Renta:
-                    <input type="text" value={searchId} onChange={(e) => setSearchId(e.target.value)} />
-                </label>
-                <label>
-                    Nuevo Estatus:
-                    <select value={estatus} onChange={(e) => setEstatus(e.target.value)}>
-                        <option value="">Seleccionar Estatus</option>
-                        <option value="0">En curso</option>
-                        <option value="1">Devuelta</option>
-                    </select>
-                </label>
-                <button onClick={actualizarEstatusRenta}>Actualizar Estatus</button>
-            </div>
+        <div className="updateRent-container">
+            <h2 className="updateRent-title">Actualizar Renta</h2>
+            <form className="updateRent-form" onSubmit={handleSubmit}>
+                <div className="updateRent-input-container">
+                    <label>
+                        ID de Renta:
+                        <input type="text" value={idRentar} onChange={(e) => setIdRentar(e.target.value)} required />
+                    </label>
+                
+                
+                    <label>
+                        Estatus:
+                        <select className= 'updateRent-checkbox' value={estatus} onChange={(e) => setEstatus(e.target.value)} required>
+                            <option value="">Seleccionar</option>
+                            <option value="0">No</option>
+                            <option value="1">Sí</option>
+                        </select>
+                    </label>
+                </div>
+                <button className="updateRent-submit" type="submit">Actualizar Renta</button>
+            </form>
+            
+                <Link to="/rents">
+                    <button className="updateRent-submit">Regresar</button>
+                </Link>
+          
         </div>
     );
 }
 
-export default RentUpdate;
+export default UpdateRent;

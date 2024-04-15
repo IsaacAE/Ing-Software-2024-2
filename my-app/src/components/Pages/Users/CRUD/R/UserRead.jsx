@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { leerUsuarios, leerUsuarioPorId } from '../../../../../DataBase/DataOperations.js';
+import { Link } from 'react-router-dom';
+import './UserRead.css'; // Importa el archivo CSS para los estilos
 
 function ReadUsers() {
   const [usuarios, setUsuarios] = useState([]);
@@ -19,9 +21,7 @@ function ReadUsers() {
     }
   };
 
-  const searchUser = (idUsuario) => {
-    return usuarios.find(usuario => usuario.idUsuario === idUsuario);
-  };
+ 
 
   const handleBuscarUsuario = async () => {
     try {
@@ -36,17 +36,27 @@ function ReadUsers() {
     }
   };
 
+  // Función para ocultar la contraseña mostrando asteriscos
+  const hidePassword = (password) => {
+    return '*'.repeat(password.length);
+  };
+
   return (
-    <div>
-      <h2>Usuarios</h2>
-      <div>
+    <div className="readUser-container"> {/* Aplica la clase del contenedor */}
+      <h2 className="readUser-title">Leer Usuarios</h2> {/* Aplica la clase del título */}
+      <div className="readUser-search"> {/* Aplica la clase del buscador */}
         <label>
           Buscar usuario por ID:
           <input type="text" value={idUsuarioBuscar} onChange={(e) => setIdUsuarioBuscar(e.target.value)} />
         </label>
         <button onClick={handleBuscarUsuario}>Buscar</button>
+        <div className="readUser-back-button"> {/* Aplica la clase del botón de regresar */}
+        <Link to="/users">
+          <button>Regresar</button>
+        </Link>
       </div>
-      <div className="usuario-detalle">
+      </div>
+      <div className="readUser-details">
         {usuarioEncontrado && (
           <div>
             <h3>Detalles del Usuario</h3>
@@ -54,19 +64,22 @@ function ReadUsers() {
             <p><strong>Nombre:</strong> {usuarioEncontrado.nombre}</p>
             <p><strong>Apellido Paterno:</strong> {usuarioEncontrado.apPat}</p>
             <p><strong>Apellido Materno:</strong> {usuarioEncontrado.apMat}</p>
+            <p><strong>Password:</strong> {hidePassword(usuarioEncontrado.password)}</p>
             <p><strong>Email:</strong> {usuarioEncontrado.email}</p>
+            <p><strong>Super Usuario:</strong> {usuarioEncontrado.superUser ? 'Sí' : 'No'}</p>
           </div>
         )}
       </div>
-      <table>
+      <table className="readUser-table"> {/* Aplica la clase de la tabla */}
         <thead>
           <tr>
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
+            <th>Password</th>
             <th>Email</th>
-            <th>Acciones</th>
+            <th>Super Usuario</th>
           </tr>
         </thead>
         <tbody>
@@ -76,14 +89,14 @@ function ReadUsers() {
               <td>{usuario.nombre}</td>
               <td>{usuario.apPat}</td>
               <td>{usuario.apMat}</td>
+              <td>{hidePassword(usuario.password)}</td>
               <td>{usuario.email}</td>
-              <td>
-                <button onClick={() => setUsuarioEncontrado(usuario)}>Ver detalles</button>
-              </td>
+              <td>{usuario.superUser}</td>
             </tr>
           ))}
         </tbody>
       </table>
+     
     </div>
   );
 }

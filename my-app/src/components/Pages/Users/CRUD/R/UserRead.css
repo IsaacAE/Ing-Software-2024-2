@@ -1,0 +1,106 @@
+/* Estilos para ReadUsers.jsx */
+
+.readUser-container {
+    background: linear-gradient(to bottom, #fa6540, #feb47b); /* Fondo degradado de color naranja */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Sombra ligera */
+    width: 100%;
+    color: white;
+    min-height: 100vh; /* Altura mínima igual a la altura de la ventana */
+    overflow: auto; /* Permitir desplazamiento si el contenido excede la altura */
+  }
+  
+  .readUser-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff; /* Color blanco para resaltar el título */
+    margin-bottom: 20px;
+    text-align: center; /* Centrar el título */
+    cursor: pointer;
+  }
+  
+  .readUser-title:hover {
+    color: #fff9a7; /* Color naranja más oscuro al pasar el mouse */
+  }
+  
+  .readUser-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .readUser-table th,
+  .readUser-table td {
+    padding: 10px;
+    text-align: center; /* Centrar contenido de celdas */
+  }
+  
+  .readUser-table th {
+    background-color: #ff6347; /* Color naranja para las celdas de encabezado */
+    color: #fff; /* Color blanco para texto de encabezado */
+  }
+  
+  .readUser-table tbody tr:nth-child(even) {
+    background-color: #fa6540; /* Color naranja más claro para filas pares */
+  }
+  
+  .readUser-table tbody tr:nth-child(odd) {
+    background-color: #feb47b; /* Color naranja más oscuro para filas impares */
+  }
+  
+  .readUser-search {
+    margin-bottom: 20px;
+    text-align: center; /* Centrar contenido */
+  }
+  
+  .readUser-search input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ff6347; /* Borde naranja */
+    background-color: #feb47b;
+    border-radius: 5px;
+  }
+  
+  .readUser-search button {
+    padding: 10px 20px;
+    margin-top: 10px; /* Espacio entre el buscador y el botón */
+    border: none;
+    border-radius: 5px;
+    background-color: #ff6347; /* Color naranja para botón */
+    color: #fff; /* Color blanco para texto de botón */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave al pasar el mouse */
+  }
+  
+  .readUser-search button:hover {
+    background-color: #ff4500; /* Color naranja más oscuro al pasar el mouse */
+  }
+  
+  .readUser-details {
+    border: 2px solid #ff6347; /* Borde naranja para destacar el cuadro */
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .readUser-details p {
+    margin: 0;
+  }
+  
+  .readUser-back-button {
+    text-align: center; /* Centrar botón */
+  }
+  
+  .readUser-back-button button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff6347; /* Color naranja para botón */
+    color: #fff; /* Color blanco para texto de botón */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave al pasar el mouse */
+  }
+  
+  .readUser-back-button button:hover {
+    background-color: #ff4500; /* Color naranja más oscuro al pasar el mouse */
+  }
+  

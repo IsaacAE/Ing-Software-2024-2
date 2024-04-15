@@ -9,7 +9,6 @@ import CreateMovie from '../Pages/Movies/CRUD/C/MovieCreate.jsx'
 import ReadMovies from '../Pages/Movies/CRUD/R/MovieRead.jsx'
 import UpdateMovie from '../Pages/Movies/CRUD/U/MovieUpdate.jsx'
 import DeleteMovie from '../Pages/Movies/CRUD/D/MovieDelete.jsx'
-import UserDetails from '../Pages/Users/CRUD/R/UserShow.jsx'
 import MoviesCRUD from '../Pages/Movies/MoviesCRUD.jsx'
 import RentsCRUD from '../Pages/Rents/RentsCRUD.jsx'
 import CreateRent from '../Pages/Rents/CRU/C/RentCreate.jsx'
@@ -30,7 +29,6 @@ function Root() {
         <Route path="readUser" element={< ReadUsers/>} />
         <Route path="updateUser" element={< UpdateUser/>} />
         <Route path="deleteUser" element={< DeleteUser/>} />
-        <Route path="showUser/:id" element={< UserDetails/>} />
         <Route path="movies/*" element={<MoviesCRUD />} />
         <Route path="createMovie" element={<CreateMovie/>} />
         <Route path="readMovie" element={<ReadMovies/>} />

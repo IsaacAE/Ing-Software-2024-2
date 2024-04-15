@@ -25,14 +25,14 @@ export let usuarios = [
 ];
 
 export let rentas = [
-  {idRentar: 1, idUsuario: 1, idPelicula: 1, fecha_renta: new Date(2022, 3, 1), dias_de_renta: 7, estatus: 0},
-  {idRentar: 2, idUsuario: 2, idPelicula: 2, fecha_renta: new Date(2022, 3, 3), dias_de_renta: 5, estatus: 0},
-  {idRentar: 3, idUsuario: 3, idPelicula: 3, fecha_renta: new Date(2022, 3, 5), dias_de_renta: 3, estatus: 0},
-  {idRentar: 4, idUsuario: 4, idPelicula: 4, fecha_renta: new Date(2022, 3, 7), dias_de_renta: 10, estatus: 0},
-  {idRentar: 5, idUsuario: 5, idPelicula: 5, fecha_renta: new Date(2022, 3, 9), dias_de_renta: 2, estatus: 0},
-  {idRentar: 6, idUsuario: 6, idPelicula: 6, fecha_renta: new Date(2022, 3, 11), dias_de_renta: 6, estatus: 0},
-  {idRentar: 7, idUsuario: 7, idPelicula: 7, fecha_renta: new Date(2022, 3, 13), dias_de_renta: 8, estatus: 0},
-  {idRentar: 8, idUsuario: 8, idPelicula: 8, fecha_renta: new Date(2022, 3, 15), dias_de_renta: 4, estatus: 0},
-  {idRentar: 9, idUsuario: 9, idPelicula: 9, fecha_renta: new Date(2022, 3, 17), dias_de_renta: 9, estatus: 0},
-  {idRentar: 10, idUsuario: 10, idPelicula: 10, fecha_renta: new Date(2022, 3, 19), dias_de_renta: 1, estatus: 0}
+  {idRentar: 1, idUsuario: 1, idPelicula: 1, fecha_renta: new Date(2026, 3, 1), dias_de_renta: 7, estatus: 0},
+  {idRentar: 2, idUsuario: 2, idPelicula: 2, fecha_renta: new Date(2025, 3, 3), dias_de_renta: 5, estatus: 0},
+  {idRentar: 3, idUsuario: 3, idPelicula: 3, fecha_renta: new Date(2024, 12, 5), dias_de_renta: 3, estatus: 0},
+  {idRentar: 4, idUsuario: 4, idPelicula: 4, fecha_renta: new Date(2024, 12, 7), dias_de_renta: 10, estatus: 0},
+  {idRentar: 5, idUsuario: 5, idPelicula: 5, fecha_renta: new Date(2022, 11, 9), dias_de_renta: 2, estatus: 0},
+  {idRentar: 6, idUsuario: 6, idPelicula: 6, fecha_renta: new Date(2025, 8, 11), dias_de_renta: 6, estatus: 0},
+  {idRentar: 7, idUsuario: 7, idPelicula: 7, fecha_renta: new Date(2025, 3, 13), dias_de_renta: 8, estatus: 0},
+  {idRentar: 8, idUsuario: 8, idPelicula: 8, fecha_renta: new Date(2025, 7, 15), dias_de_renta: 4, estatus: 0},
+  {idRentar: 9, idUsuario: 9, idPelicula: 9, fecha_renta: new Date(2024, 1, 17), dias_de_renta: 9, estatus: 0},
+  {idRentar: 10, idUsuario: 10, idPelicula: 10, fecha_renta: new Date(2025, 3, 19), dias_de_renta: 1, estatus: 0}
 ];

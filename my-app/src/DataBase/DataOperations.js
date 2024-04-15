@@ -28,7 +28,6 @@ function crearUsuario(nombre, apPat, password, apMat = null, email = null, profi
         superUser: superUser
     });
 
-    alert('Usuario registrado exitosamente.');
     return 1; // Devuelve 1 si se ha registrado el usuario exitosamente
 }
 
@@ -103,7 +102,6 @@ function crearPelicula(nombre, genero, duracion, inventario) {
         inventario: inventario
     });
 
-    alert('Usuario registrado exitosamente.');
     return 1; // Devuelve 1 si se ha registrado el usuario exitosamente
 }
 

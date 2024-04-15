@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { eliminarUsuario, leerUsuarioPorId } from '../../../../../DataBase/DataOperations';
+import { Link } from 'react-router-dom';
+import './UserDelete.css'; // Importa el archivo CSS con los estilos
 
 function DeleteUser() {
     const [idUsuario, setIdUsuario] = useState('');
@@ -14,7 +16,7 @@ function DeleteUser() {
 
         const usuario = await leerUsuarioPorId(parseInt(idUsuario));
         if (!usuario) {
-            setAlerta('No se encontró ningún usuario con ese ID.');
+            alert('No se encontró ningún usuario con ese ID.');
             return;
         }
 
@@ -27,18 +29,24 @@ function DeleteUser() {
     };
 
     return (
-        <div>
-            <h2>Eliminar Usuario</h2>
+        <div className="deleteUser-container">
+            <h2 className="deleteUser-title">Eliminar Usuario</h2>
             <div>
                 <label>
                     Ingresar ID del usuario a eliminar:
-                    <input type="text" value={idUsuario} onChange={(e) => setIdUsuario(e.target.value)} />
+                    <input type="text" value={idUsuario} onChange={(e) => setIdUsuario(e.target.value)} className="deleteUser-input" />
                 </label>
-                <button onClick={handleEliminarUsuario}>Eliminar</button>
+                <button onClick={handleEliminarUsuario} className="deleteUser-button">Eliminar</button>
             </div>
             {alerta && <div>{alerta}</div>}
             {!alerta && <div>Si no ingresas un ID, se eliminarán todos los usuarios.</div>}
+            <div className="deleteUser-back-button">
+                <Link to="/users">
+                    <button className="deleteUser-button">Regresar</button>
+                </Link>
+            </div>
         </div>
+        
     );
 }
 

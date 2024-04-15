@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { leerRentaPorId, leerRentas } from '../../../../../DataBase/DataOperations';
+import { Link } from 'react-router-dom'; // Importa el componente Link de react-router-dom
+import './RentRead.css'
 
 function ReadRents() {
     const [rentas, setRentas] = useState([]);
@@ -27,11 +29,11 @@ function ReadRents() {
             if (renta) {
                 setRentaEncontrada(renta);
             } else {
-                setErrorMessage('No se encontró ninguna renta con ese ID.');
+                alert('No se encontró ninguna renta con ese ID.');
             }
         } catch (error) {
             console.error('Error al buscar renta por ID:', error);
-            setErrorMessage('Hubo un error al buscar la renta.');
+            alert('Hubo un error al buscar la renta.');
         }
     };
 
@@ -41,18 +43,23 @@ function ReadRents() {
     };
 
     return (
-        <div>
-            <h2>Ver Rentas</h2>
-            <div>
+        <div className="readRent-container">
+            <h2 className="readRent-title">Ver Rentas</h2>
+            <div className="readRent-search">
                 <label>
                     Buscar renta por ID:
-                    <input type="text" value={searchId} onChange={(e) => setSearchId(e.target.value)} />
+                    <input type="text" value={searchId} onChange={(e) => setSearchId(e.target.value)} className="readRent-input" />
                 </label>
-                <button onClick={buscarRentaPorId}>Buscar</button>
+                <button onClick={buscarRentaPorId} className="readRent-submit">Buscar</button>
+            </div>
+            <div className="readRent-back-button">
+                <Link to="/rents">
+                    <button className="readRent-submit">Regresar</button>
+                </Link>
             </div>
             {errorMessage && <div>{errorMessage}</div>}
             {rentaEncontrada && (
-                <div>
+                <div className="readRent-details">
                     <h3>Detalles de la Renta</h3>
                     <p><strong>ID de Renta:</strong> {rentaEncontrada.idRentar}</p>
                     <p><strong>ID de Usuario:</strong> {rentaEncontrada.idUsuario}</p>
@@ -62,7 +69,7 @@ function ReadRents() {
                     <p><strong>Estatus:</strong> {rentaEncontrada.estatus}</p>
                 </div>
             )}
-            <table>
+            <table className="readRent-table">
                 <thead>
                     <tr>
                         <th>ID Renta</th>
@@ -75,7 +82,7 @@ function ReadRents() {
                 </thead>
                 <tbody>
                     {rentas.map(renta => (
-                        <tr key={renta.idRentar}>
+                        <tr key={renta.idRentar} style={{ color: new Date(renta.fecha_renta) < new Date() ? 'red' : 'initial' }}>
                             <td>{renta.idRentar}</td>
                             <td>{renta.idUsuario}</td>
                             <td>{renta.idPelicula}</td>
@@ -86,6 +93,7 @@ function ReadRents() {
                     ))}
                 </tbody>
             </table>
+           
         </div>
     );
 }

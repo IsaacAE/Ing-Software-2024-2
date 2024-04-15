@@ -1,0 +1,73 @@
+.updateMovie-container {
+    background: linear-gradient(to bottom, #8d7406, #f0d53c); /* Fondo degradado de color amarillo */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Sombra ligera */
+    width: 100%;
+    height: 100%;
+    text-align: center; /* Centra todo el contenido */
+    overflow: auto;
+}
+  
+.updateMovie-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black; /* Color blanco para resaltar el título */
+    margin-bottom: 20px;
+    display: inline-block; /* Ajusta el ancho al contenido */
+    transition: color 0.3s; /* Efecto de transición en el color */
+}
+  
+.updateMovie-title:hover {
+    color: #ffe96e; /* Cambia el color al pasar el mouse */
+}
+
+.updateMovie-input-container {
+    border: 7px solid #ffe96e; /* Borde amarillo */
+    border-radius: 5px;
+    padding: 10px;
+    width: fit-content;
+}
+  
+.updateMovie-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los campos en el formulario */
+    color: black;
+}
+  
+.updateMovie-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #aaaa43; /* Color de fondo para los campos */
+    transition: background-color 0.3s; /* Transición suave al pasar el mouse */
+    color: black;
+}
+  
+.updateMovie-input:hover {
+    background-color: #ffdf00; /* Color de fondo resaltado al pasar el mouse */
+}
+  
+.updateMovie-checkbox {
+    margin-top: 10px;
+}
+  
+.updateMovie-submit {
+    width: 100px;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffe96e; /* Color amarillo para los botones */
+    color: black; /* Color blanco para el texto de los botones */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave al pasar el mouse */
+}
+  
+.updateMovie-submit:hover {
+    background-color: #ffcc00; /* Color amarillo más oscuro al pasar el mouse */
+}

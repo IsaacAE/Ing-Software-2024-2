@@ -1,0 +1,103 @@
+.readMovie-container {
+    background: linear-gradient(to bottom, #8d7406, #f0d53c); /* Fondo degradado de color amarillo */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Sombra ligera */
+    width: 100%;
+    color: black; /* Cambio de color a negro */
+    min-height: 100vh; /* Altura mínima igual a la altura de la ventana */
+    overflow: auto; /* Permitir desplazamiento si el contenido excede la altura */
+}
+
+.readMovie-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black; /* Color negro para resaltar el título */
+    margin-bottom: 20px;
+    text-align: center; /* Centrar el título */
+    cursor: pointer;
+}
+
+.readMovie-title:hover {
+    color: #ffe96e; /* Cambia el color al pasar el mouse a amarillo */
+}
+
+.readMovie-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.readMovie-table th,
+.readMovie-table td {
+    padding: 10px;
+    text-align: center; /* Centrar contenido de celdas */
+}
+
+.readMovie-table th {
+    background-color: #ffe96e; /* Color amarillo para las celdas de encabezado */
+    color: black; /* Color negro para texto de encabezado */
+}
+
+.readMovie-table tbody tr:nth-child(even) {
+    background-color: #8d7406; /* Color amarillo más claro para filas pares */
+}
+
+.readMovie-table tbody tr:nth-child(odd) {
+    background-color: #f0d53c; /* Color amarillo más oscuro para filas impares */
+}
+
+.readMovie-search {
+    margin-bottom: 20px;
+    text-align: center; /* Centrar contenido */
+}
+
+.readMovie-search input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ffe96e; /* Borde amarillo */
+    background-color: #f0d53c; /* Color de fondo */
+    border-radius: 5px;
+}
+
+.readMovie-search button {
+    padding: 10px 20px;
+    margin-top: 10px; /* Espacio entre el buscador y el botón */
+    border: none;
+    border-radius: 5px;
+    background-color: #ffe96e; /* Color amarillo para botón */
+    color: black; /* Color negro para texto de botón */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave al pasar el mouse */
+}
+
+.readMovie-search button:hover {
+    background-color: #ffcc00; /* Color amarillo más oscuro al pasar el mouse */
+}
+
+.readMovie-details {
+    border: 2px solid #ffe96e; /* Borde amarillo para destacar el cuadro */
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.readMovie-details p {
+    margin: 0;
+}
+
+.readMovie-back-button {
+    text-align: center; /* Centrar botón */
+}
+
+.readMovie-back-button button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffe96e; /* Color amarillo para botón */
+    color: black; /* Color negro para texto de botón */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave al pasar el mouse */
+}
+
+.readMovie-back-button button:hover {
+    background-color: #ffcc00; /* Color amarillo más oscuro al pasar el mouse */
+}
