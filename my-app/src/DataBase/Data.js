@@ -1,27 +1,27 @@
 export let peliculas = [
-  {idPelicula: 1, nombre: 'El Renacimiento de Titanic', genero: 'Romance/Drama', duracion: 195, inventario: 8},
-  {idPelicula: 2, nombre: 'Resurgimiento de Terminator', genero: 'Ciencia Ficción/Acción', duracion: 137, inventario: 3},
-  {idPelicula: 3, nombre: 'Velocidad sin Límites', genero: 'Acción', duracion: 140, inventario: 6},
-  {idPelicula: 4, nombre: 'La Herencia del Padrino', genero: 'Crimen/Drama', duracion: 175, inventario: 4},
-  {idPelicula: 5, nombre: 'La Batalla por la Tierra Media', genero: 'Fantasía/Aventura', duracion: 201, inventario: 9},
-  {idPelicula: 6, nombre: 'Magia y Misterio: Harry Potter', genero: 'Fantasía/Aventura', duracion: 152, inventario: 2},
-  {idPelicula: 7, nombre: 'Simba: El Regreso del Rey', genero: 'Animación/Aventura', duracion: 118, inventario: 5},
-  {idPelicula: 8, nombre: 'Aventuras en el Mundo de los Juguetes', genero: 'Animación/Comedia', duracion: 81, inventario: 7},
-  {idPelicula: 9, nombre: 'Destino Intercambiado', genero: 'Anime/Romance', duracion: 106, inventario: 10},
-  {idPelicula: 10, nombre: 'Neo-Tokio: La Ciudad Olvidada', genero: 'Anime/Ciencia Ficción', duracion: 124, inventario: 12}
+  {idPelicula: 1, nombre: 'Apocalipto', genero: 'Drama', duracion: 195, inventario: 6},
+  {idPelicula: 2, nombre: 'Volvo Va', genero: 'Ciencia Ficción', duracion: 137, inventario: 3},
+  {idPelicula: 3, nombre: 'Despiadado', genero: 'Acción', duracion: 140, inventario: 6},
+  {idPelicula: 4, nombre: 'La Herencia', genero: 'Crimen', duracion: 175, inventario: 4},
+  {idPelicula: 5, nombre: 'La Batalla por la Tierra Media', genero: 'Fantasía', duracion: 201, inventario: 9},
+  {idPelicula: 6, nombre: 'Marchar', genero: 'Policial', duracion: 152, inventario: 2},
+  {idPelicula: 7, nombre: 'Simba: El Regreso del Rey', genero: 'Animación', duracion: 118, inventario: 5},
+  {idPelicula: 8, nombre: 'Aventuras en el Mundo de los Juguetes', genero: 'Animación', duracion: 81, inventario: 7},
+  {idPelicula: 9, nombre: 'Destino Intercambiado', genero: 'Anime', duracion: 106, inventario: 10},
+  {idPelicula: 10, nombre: 'Neo-Tokio: La Ciudad Olvidada', genero: 'Anime', duracion: 124, inventario: 12}
 ];
 
 export let usuarios = [
-  {idUsuario: 1, nombre: 'Juanito', apPat: 'Perez', apMat: 'Gomez', password: '1234', email: 'juanito@gmail.com', profilePicture: null, superUser: 0},
-  {idUsuario: 2, nombre: 'María', apPat: 'Gomez', apMat: "Martínez", password: 'abjs', email: 'maria_95@gmail.com', profilePicture: null, superUser: 0},
-  {idUsuario: 3, nombre: 'Pedrito', apPat: 'López', apMat: 'Hernández', password: 'LKNDW8', email: 'pedro_22@gmail.com', profilePicture: null, superUser: 0},
-  {idUsuario: 4, nombre: 'Ana', apPat: 'Hernández', apMat: 'García', password: 'kdhkj4', email: 'ana_78@gmail.com', profilePicture: null, superUser: 0},
-  {idUsuario: 5, nombre: 'Luis', apPat: 'García', apMat: 'Pérez', password: 'lsljnd', email: 'luis85@hotmail.com', profilePicture: null, superUser: 0},
-  {idUsuario: 6, nombre: 'Carlos', apPat: 'Pérez', apMat: 'Manzanares', password: 'kjsd', email: 'cmanza@gmail.com', profilePicture: null, superUser: 0},
-  {idUsuario: 7, nombre: 'Sofía', apPat: 'Romero', apMat: 'Cabrera', password: ',nndbfb', email: 'sofi_2000@gmail.com', profilePicture: null, superUser: 0},
-  {idUsuario: 8, nombre: 'Gael', apPat: 'Altamirano', apMat: 'Flores', password: 'aknndel', email: 'gael_flores@gmail.com', profilePicture: null, superUser: 0},
-  {idUsuario: 9, nombre: 'Fernanda', apPat: 'Gómez', apMat: "López", password: 'ljdhi', email: 'fer88@gmail.com', profilePicture: null, superUser: 0},
-  {idUsuario: 10, nombre: 'Jin', apPat: 'Blanco', apMat: 'Rodríguez', password: 'lkfjo', email: 'jin88@yahoo.com', profilePicture: null, superUser:1}
+  {idUsuario: 1, nombre: 'Juan', apPat: 'Pablo', apMat: 'Gomez', password: '1234', email: 'juanito@gmail.com', profilePicture: null, superUser: 0},
+  {idUsuario: 2, nombre: 'Mafer', apPat: 'Gomez', apMat: "Martínez", password: 'absdfjs', email: 'maria_95@gmail.com', profilePicture: null, superUser: 0},
+  {idUsuario: 3, nombre: 'Ezio', apPat: 'Saldivar', apMat: 'Hernández', password: 'LKNDW8', email: 'partilos@gmail.com', profilePicture: null, superUser: 0},
+  {idUsuario: 4, nombre: 'Ana', apPat: 'Pearl', apMat: 'García', password: 'ksdfj4', email: 'anastasio890@gmail.com', profilePicture: null, superUser: 0},
+  {idUsuario: 5, nombre: 'Jose', apPat: 'García', apMat: 'Pérez', password: 'lsljnd', email: 'luis85@hotmail.com', profilePicture: null, superUser: 0},
+  {idUsuario: 6, nombre: 'Carlos', apPat: 'Lopez', apMat: 'Manzanares', password: 'kjsd', email: 'comal34@gmail.com', profilePicture: null, superUser: 0},
+  {idUsuario: 7, nombre: 'Sofía', apPat: 'Romero', apMat: 'Cabrera', password: ',nn44dbfb', email: 'crepas34@gmail.com', profilePicture: null, superUser: 0},
+  {idUsuario: 8, nombre: 'Gojo', apPat: 'Altamirano', apMat: 'Flores', password: 'aknn600del', email: 'lovage@gmail.com', profilePicture: null, superUser: 0},
+  {idUsuario: 9, nombre: 'Fernanda', apPat: 'Alcántara', apMat: "López", password: 'ljdhi', email: 'lova88@gmail.com', profilePicture: null, superUser: 0},
+  {idUsuario: 10, nombre: 'Jatziri', apPat: 'Blanco', apMat: 'Rodríguez', password: 'lkfjo', email: 'perka@yahoo.com', profilePicture: null, superUser:1}
 ];
 
 export let rentas = [
